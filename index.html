@@ -3,348 +3,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Future - 重新定義人類娛樂體驗</title>
+    <title>AI Future - 重新定義人類娛樂體驗的終極願景</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #3498db;
-            --secondary: #8e44ad;
-            --accent: #00ff9d;
-            --dark-bg: #0a0a0a;
-            --card-bg: rgba(26, 32, 44, 0.7);
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --accent: #06d6a0;
+            --dark-bg: #0f0f0f;
+            --card-bg: rgba(15, 23, 42, 0.8);
+        }
+        
+        * {
+            box-sizing: border-box;
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            background-color: var(--dark-bg);
+            background: var(--dark-bg);
             color: #ffffff;
+            line-height: 1.6;
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(52, 152, 219, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(142, 68, 173, 0.1) 0%, transparent 20%);
+                radial-gradient(circle at 20% 50%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(6, 214, 160, 0.05) 0%, transparent 50%);
+            background-attachment: fixed;
         }
         
-        .logo-font {
+        .logo-text {
             font-family: 'Orbitron', sans-serif;
-            font-weight: 800;
-            font-size: 2.5rem;
-            letter-spacing: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            font-weight: 900;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            position: relative;
-            display: inline-block;
-            text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-            animation: logoGlow 3s ease-in-out infinite alternate;
+            text-shadow: 0 0 30px rgba(6, 214, 160, 0.3);
         }
         
-        @keyframes logoGlow {
-            0% { text-shadow: 0 0 10px rgba(0, 255, 157, 0.3); }
-            100% { text-shadow: 0 0 25px rgba(0, 255, 157, 0.6), 0 0 35px rgba(52, 152, 219, 0.4); }
-        }
-        
-        .logo-sub {
+        .logo-subtitle {
             font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
+            font-size: 0.6rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--accent);
-            margin-top: -10px;
-            text-align: center;
-            opacity: 0.8;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .gradient-bg {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0, 255, 157, 0.2);
-            border-color: rgba(0, 255, 157, 0.3);
+            opacity: 0.9;
+            margin-top: -5px;
         }
         
         .navbar {
-            background-color: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             z-index: 1000;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(6, 214, 160, 0.1);
+            transition: all 0.3s ease;
+            padding: 1rem 0;
+        }
+        
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(15, 15, 15, 0.98);
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            font-weight: 500;
+            position: relative;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.active {
+            color: var(--accent);
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            border-radius: 1px;
         }
         
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
             transition: all 0.3s ease;
             border: none;
-            font-weight: 600;
-            border-radius: 9999px;
-            padding: 12px 24px;
-            color: white;
+            cursor: pointer;
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
             color: white;
         }
         
         .btn-secondary {
-            background-color: transparent;
-            border: 1px solid var(--accent);
+            background: transparent;
             color: var(--accent);
-            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
             font-weight: 600;
-            border-radius: 9999px;
-            padding: 12px 24px;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
         }
         
         .btn-secondary:hover {
-            background-color: rgba(0, 255, 157, 0.1);
+            background: var(--accent);
+            color: var(--dark-bg);
             transform: translateY(-3px);
-            color: var(--accent);
+            box-shadow: 0 10px 25px rgba(6, 214, 160, 0.4);
         }
         
-        .hero {
-            position: relative;
-            overflow: hidden;
+        .hero-section {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding-top: 80px;
-        }
-        
-        .hero:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 100%);
-            z-index: 1;
-        }
-        
-        .hero-content {
             position: relative;
-            z-index: 2;
+            padding-top: 100px;
+            background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
         }
         
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.3;
-            animation: bgPan 30s infinite linear;
-        }
-        
-        @keyframes bgPan {
-            0% { background-position: 0% 0%; }
-            50% { background-position: 100% 100%; }
-            100% { background-position: 0% 0%; }
-        }
-        
-        .floating {
-            animation: floating 6s ease-in-out infinite;
-        }
-        
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        .animate-fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-            opacity: 0;
-        }
-        
-        .animate-slide-up {
-            animation: slideUp 0.8s ease-in-out forwards;
-            opacity: 0;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        .ai-element {
-            position: absolute;
-            background-color: rgba(52, 152, 219, 0.1);
-            border: 1px solid rgba(52, 152, 219, 0.3);
-            backdrop-filter: blur(5px);
-            padding: 10px;
-            border-radius: 8px;
-            font-family: monospace;
-            font-size: 12px;
-            color: var(--accent);
-            z-index: 3;
-            pointer-events: none;
-            box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
-        }
-        
-        .data-stream {
-            position: fixed;
-            height: 100px;
-            width: 2px;
-            background: linear-gradient(to bottom, transparent, var(--accent), var(--secondary), transparent);
-            z-index: 0;
-            animation: dataStream 2s linear infinite;
-            opacity: 0.3;
-        }
-        
-        @keyframes dataStream {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh); }
-        }
-        
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(10, 10, 10, 0.98);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            padding: 80px 20px 20px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            overflow-y: auto;
-        }
-        
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-        
-        .mobile-menu-close {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--accent);
-            z-index: 2001;
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
             margin-bottom: 2rem;
         }
         
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 600px;
         }
         
-        .section-title.center:after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-        
-        .platform-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            margin-bottom: 16px;
-        }
-        
-        .stats-card {
-            text-align: center;
-            padding: 25px;
-            border-radius: 16px;
-            background: rgba(26, 32, 44, 0.5);
-            border: 1px solid rgba(0, 255, 157, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .stats-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent);
-            background: rgba(26, 32, 44, 0.7);
-        }
-        
-        .stats-card i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--accent);
-        }
-        
-        .stats-card .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         
-        .timeline {
+        .card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
             position: relative;
-            padding-left: 30px;
+            overflow: hidden;
         }
         
-        .timeline:before {
+        .card::before {
             content: '';
             position: absolute;
-            left: 15px;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(6, 214, 160, 0.3);
+            box-shadow: 0 20px 40px rgba(6, 214, 160, 0.1);
+        }
+        
+        .card:hover::before {
+            opacity: 1;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.125rem;
+            margin-bottom: 4rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover .platform-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
             top: 0;
             bottom: 0;
             width: 2px;
@@ -353,265 +295,383 @@
         
         .timeline-item {
             position: relative;
-            margin-bottom: 30px;
-            padding: 20px;
+            margin-bottom: 3rem;
+            padding: 1.5rem 2rem;
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 15px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-left: 2rem;
         }
         
-        .timeline-item:before {
+        .timeline-item::before {
             content: '';
             position: absolute;
-            left: -37px;
-            top: 25px;
-            width: 12px;
-            height: 12px;
+            left: -3.5rem;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
             background: var(--accent);
-            box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            border: 3px solid var(--dark-bg);
+            box-shadow: 0 0 20px rgba(6, 214, 160, 0.5);
         }
         
         .timeline-date {
             color: var(--accent);
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
         }
         
-        .input-field {
-            background: rgba(26, 32, 44, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: white;
-            border-radius: 8px;
-            padding: 12px 16px;
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
             width: 100%;
+            height: 100vh;
+            background: rgba(15, 15, 15, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: right 0.3s ease;
+            padding: 100px 2rem 2rem;
+            overflow-y: auto;
+        }
+        
+        .mobile-menu.open {
+            right: 0;
+        }
+        
+        .mobile-menu-item {
+            display: block;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
+            text-decoration: none;
         }
         
-        .input-field:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 10px rgba(0, 255, 157, 0.2);
+        .mobile-menu-item:hover {
+            color: var(--accent);
+            padding-left: 1rem;
         }
         
-        .input-field::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
         }
         
-        /* 移動端優化 */
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        
+        .ecosystem-visual {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        
+        .ecosystem-center {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .ecosystem-orbit {
+            position: absolute;
+            border: 2px dashed rgba(6, 214, 160, 0.3);
+            border-radius: 50%;
+            animation: rotate 20s linear infinite;
+        }
+        
+        .ecosystem-orbit-1 {
+            width: 250px;
+            height: 250px;
+        }
+        
+        .ecosystem-orbit-2 {
+            width: 350px;
+            height: 350px;
+        }
+        
+        .ecosystem-node {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            animation: counter-rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes counter-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(-360deg); }
+        }
+        
+        .feature-comparison {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .comparison-table th {
+            background: rgba(6, 214, 160, 0.1);
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(37, 99, 235, 0.1));
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3rem 0 1rem;
+            margin-top: 5rem;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
         @media (max-width: 768px) {
             .desktop-nav {
                 display: none;
             }
             
-            .mobile-menu-btn {
-                display: block;
+            .hamburger {
+                display: flex;
             }
             
-            .logo-font {
-                font-size: 1.8rem;
+            .hero-title {
+                font-size: 2.5rem;
             }
             
-            .hero {
-                min-height: 80vh;
-                padding-top: 100px;
+            .hero-subtitle {
+                font-size: 1.125rem;
             }
             
-            .hero-bg {
-                animation: none;
-            }
-            
-            .section-title:after {
-                width: 40px;
-                bottom: -8px;
-            }
-            
-            .ecosystem-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-card .number {
+            .section-title {
                 font-size: 2rem;
             }
             
-            .timeline {
-                padding-left: 20px;
-            }
-            
-            .timeline-item:before {
-                left: -27px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero {
-                min-height: 70vh;
-                padding-top: 120px;
-            }
-            
-            .logo-font {
+            .logo-text {
                 font-size: 1.5rem;
             }
             
-            .logo-sub {
-                font-size: 0.6rem;
+            .timeline {
+                padding-left: 1rem;
             }
             
-            .mobile-menu {
-                padding-top: 100px;
+            .timeline-item {
+                margin-left: 1rem;
+            }
+            
+            .timeline-item::before {
+                left: -2.5rem;
+            }
+            
+            .ecosystem-visual {
+                height: 300px;
+            }
+            
+            .ecosystem-orbit-1 {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .ecosystem-orbit-2 {
+                width: 280px;
+                height: 280px;
             }
         }
         
-        /* 導航欄高度調整 */
-        .navbar {
-            height: 80px;
-            display: flex;
-            align-items: center;
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                height: 70px;
-            }
-        }
-        
-        /* 隱藏/顯示類 */
-        .hidden {
-            display: none;
-        }
-        
-        .block {
-            display: block;
-        }
-        
-        /* 平滑滾動 */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Section padding 調整 */
         .section-padding {
-            padding: 80px 0;
+            padding: 5rem 0;
         }
         
-        @media (max-width: 768px) {
-            .section-padding {
-                padding: 60px 0;
-            }
+        .bg-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
         }
     </style>
 </head>
 <body>
-    <!-- AI 數據流效果 -->
-    <div class="ai-element" style="top: 120px; left: 10%;">
-        AI_STATUS: ACTIVE <br>
-        FUTURE_MODE: ENABLED <br>
-        // 重新定義娛樂體驗
-    </div>
-    
-    <div class="ai-element" style="bottom: 150px; right: 15%;">
-        PLATFORM_COUNT: 8 <br>
-        USERS: 10億+ <br>
-        // 全球生態系統
-    </div>
-    
-    <!-- 數據流動畫 -->
-    <div class="data-stream" style="left: 20%; animation-delay: 0s;"></div>
-    <div class="data-stream" style="left: 40%; animation-delay: 0.5s;"></div>
-    <div class="data-stream" style="left: 60%; animation-delay: 1s;"></div>
-    <div class="data-stream" style="left: 80%; animation-delay: 1.5s;"></div>
+    <!-- 滾動進度條 -->
+    <div class="scroll-indicator"></div>
 
     <!-- 導航欄 -->
     <nav class="navbar">
-        <div class="container mx-auto px-4 flex justify-between items-center h-full">
-            <div class="flex flex-col items-center">
-                <div class="logo-font">AI FUTURE</div>
-                <div class="logo-sub">AIF娛樂集團</div>
-            </div>
-            
-            <div class="hidden md:flex space-x-8 desktop-nav">
-                <a href="#ecosystem" class="hover:text-blue-400 transition">生態系統</a>
-                <a href="#platforms" class="hover:text-blue-400 transition">核心平台</a>
-                <a href="#technology" class="hover:text-blue-400 transition">技術創新</a>
-                <a href="#roadmap" class="hover:text-blue-400 transition">發展路線</a>
-                <a href="#vision" class="hover:text-blue-400 transition">未來願景</a>
-                <a href="#contact" class="hover:text-blue-400 transition">聯繫我們</a>
-            </div>
-            
-            <div class="flex items-center space-x-4">
-                <a href="#whitepaper" class="btn-primary hidden md:inline-block">白皮書</a>
-                <button class="md:hidden text-white mobile-menu-btn">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex flex-col">
+                    <div class="logo-text">AI FUTURE</div>
+                    <div class="logo-subtitle">AIF 娛樂集團</div>
+                </div>
+                
+                <!-- 桌面導航 -->
+                <div class="hidden lg:flex space-x-8 desktop-nav">
+                    <a href="#overview" class="nav-link">項目概述</a>
+                    <a href="#ecosystem" class="nav-link">生態系統</a>
+                    <a href="#platforms" class="nav-link">八大平台</a>
+                    <a href="#technology" class="nav-link">技術創新</a>
+                    <a href="#roadmap" class="nav-link">發展路線</a>
+                    <a href="#market" class="nav-link">市場分析</a>
+                    <a href="#vision" class="nav-link">未來願景</a>
+                </div>
+                
+                <!-- 行動按鈕與漢堡選單 -->
+                <div class="flex items-center space-x-4">
+                    <a href="#whitepaper" class="btn-primary hidden md:inline-block">白皮書</a>
+                    <div class="hamburger lg:hidden">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- 移動端菜單 -->
+    <!-- 移動端選單 -->
     <div class="mobile-menu">
-        <div class="mobile-menu-close">
-            <i class="fas fa-times"></i>
-        </div>
-        
-        <div class="flex flex-col space-y-8">
-            <a href="#ecosystem" class="text-2xl hover:text-blue-400 transition mobile-nav-link">生態系統</a>
-            <a href="#platforms" class="text-2xl hover:text-blue-400 transition mobile-nav-link">核心平台</a>
-            <a href="#technology" class="text-2xl hover:text-blue-400 transition mobile-nav-link">技術創新</a>
-            <a href="#roadmap" class="text-2xl hover:text-blue-400 transition mobile-nav-link">發展路線</a>
-            <a href="#vision" class="text-2xl hover:text-blue-400 transition mobile-nav-link">未來願景</a>
-            <a href="#contact" class="text-2xl hover:text-blue-400 transition mobile-nav-link">聯繫我們</a>
-            
-            <div class="pt-8 border-t border-gray-700">
-                <a href="#whitepaper" class="btn-primary w-full text-center text-lg mobile-nav-link">
-                    下載白皮書
-                </a>
-            </div>
+        <a href="#overview" class="mobile-menu-item">項目概述</a>
+        <a href="#ecosystem" class="mobile-menu-item">生態系統</a>
+        <a href="#platforms" class="mobile-menu-item">八大平台</a>
+        <a href="#technology" class="mobile-menu-item">技術創新</a>
+        <a href="#roadmap" class="mobile-menu-item">發展路線</a>
+        <a href="#market" class="mobile-menu-item">市場分析</a>
+        <a href="#vision" class="mobile-menu-item">未來願景</a>
+        <div class="mt-8">
+            <a href="#whitepaper" class="btn-primary w-full text-center">下載白皮書</a>
         </div>
     </div>
 
     <!-- 英雄區 -->
-    <section class="hero">
-        <div class="hero-bg"></div>
-        <div class="container mx-auto px-4 hero-content">
-            <div class="max-w-4xl animate-fade-in">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6">
-                    重新定義<br>
-                    <span class="gradient-text">人類娛樂體驗</span>
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
-                    AI Future項目構建全球首個完整的AI原生娛樂生態系統，<br>
-                    讓每個人都能成為無限可能世界的創造者。
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mb-12">
-                    <a href="#ecosystem" class="btn-primary text-lg px-8 py-4">
-                        探索生態系統
-                    </a>
-                    <a href="#whitepaper" class="btn-secondary text-lg px-8 py-4">
-                        下載白皮書
-                    </a>
-                </div>
-                
-                <!-- 核心數據 -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                    <div class="stats-card">
-                        <i class="fas fa-globe"></i>
-                        <div class="number">8</div>
-                        <div class="text-sm">核心平台</div>
+    <section class="hero-section">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h1 class="hero-title">
+                            重新定義<br>
+                            <span class="gradient-text">人類娛樂體驗</span><br>
+                            的終極願景
+                        </h1>
+                        <p class="hero-subtitle">
+                            AI Future項目構建全球首個完整的AI原生娛樂生態系統，推動從"為你(For You)"到"由你(By You)"的範式轉移，
+                            讓每個人都能成為無限可能世界的創造者。
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <a href="#ecosystem" class="btn-primary text-lg px-8 py-4">探索生態系統</a>
+                            <a href="#whitepaper" class="btn-secondary text-lg px-8 py-4">下載白皮書</a>
+                        </div>
+                        
+                        <!-- 核心數據 -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">8</div>
+                                <div class="stat-label">核心平台</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">10億</div>
+                                <div class="stat-label">目標用戶</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">1000億</div>
+                                <div class="stat-label">市場價值</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2030</div>
+                                <div class="stat-label">願景達成</div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stats-card">
-                        <i class="fas fa-users"></i>
-                        <div class="number">10億</div>
-                        <div class="text-sm">目標用戶</div>
-                    </div>
-                    <div class="stats-card">
-                        <i class="fas fa-dollar-sign"></i>
-                        <div class="number">1000億</div>
-                        <div class="text-sm">市場價值</div>
-                    </div>
-                    <div class="stats-card">
-                        <i class="fas fa-rocket"></i>
-                        <div class="number">2030</div>
-                        <div class="text-sm">願景達成</div>
+                    
+                    <!-- 視覺展示區 -->
+                    <div>
+                        <div class="ecosystem-visual">
+                            <div class="ecosystem-center">
+                                AI<br>FUTURE
+                            </div>
+                            <div class="ecosystem-orbit ecosystem-orbit-1">
+                                <div class="ecosystem-node" style="top: -30px; left: calc(50% - 30px);">🎬</div>
+                                <div class="ecosystem-node" style="top: calc(50% - 30px); right: -30px;">🌍</div>
+                                <div class="ecosystem-node" style="bottom: -30px; left: calc(50% - 30px);">👓</div>
+                                <div class="ecosystem-node" style="top: calc(50% - 30px); left: -30px;">🎡</div>
+                            </div>
+                            <div class="ecosystem-orbit ecosystem-orbit-2">
+                                <div class="ecosystem-node" style="top: -30px; right: 25%;">⭐</div>
+                                <div class="ecosystem-node" style="bottom: -30px; right: 25%;">💳</div>
+                                <div class="ecosystem-node" style="bottom: -30px; left: 25%;">🏛</div>
+                                <div class="ecosystem-node" style="top: -30px; left: 25%;">🎓</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -619,582 +679,124 @@
     </section>
 
     <!-- 項目概述 -->
-    <section class="section-padding bg-gray-900 bg-opacity-50" id="overview">
+    <section id="overview" class="section-padding bg-pattern">
         <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">項目核心使命</h2>
-                <p class="text-xl text-gray-300 mb-12 leading-relaxed">
-                    我們正站在人類娛樂史上最重要的轉折點。AI Future不僅僅是一個項目名稱，
-                    它代表著人類娛樂體驗的根本性跨越：從被動消費到主動創造，
-                    從標準化到無限個性化，從虛實分離到深度融合。
+            <div>
+                <h2 class="section-title gradient-text">項目核心使命</h2>
+                <p class="section-subtitle">
+                    我們正站在人類娛樂史上最重要的轉折點。從被動消費到主動創造，從標準化到無限個性化，
+                    從虛實分離到深度融合，AI Future代表著人類娛樂體驗的根本性跨越。
                 </p>
+            </div>
+            
+            <!-- 範式轉移對比 -->
+            <div class="feature-comparison">
+                <h3 class="text-2xl font-bold mb-6 text-center">從"為你"到"由你"的範式轉移</h3>
+                <div class="overflow-x-auto">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>維度</th>
+                                <th>傳統媒體時代</th>
+                                <th>算法媒體時代</th>
+                                <th>AI原生時代</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold text-green-400">內容創作</td>
+                                <td>專業機構中心化生產</td>
+                                <td>專業+UGC並存</td>
+                                <td>AI與用戶共同創造</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-green-400">用戶角色</td>
+                                <td>被動消費者</td>
+                                <td>主動選擇者</td>
+                                <td>共同創作者、導演</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-green-400">個性化</td>
+                                <td>大眾化傳播</td>
+                                <td>推薦式個性化</td>
+                                <td>生成式超個性化</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-green-400">分發模式</td>
+                                <td>線性固定排播</td>
+                                <td>算法驅動分發</td>
+                                <td>交互式即時生成</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold text-green-400">社會功能</td>
+                                <td>統一文化母體</td>
+                                <td>圈層化興趣社群</td>
+                                <td>個體體驗+創造分享</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- 核心特徵 -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">超個性化</h3>
+                    <p class="text-gray-300">基於實時數據和指令的"生成式"超個性化，達到"一人一世界"的極致體驗</p>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="card p-6">
-                        <div class="platform-icon mx-auto">
-                            <i class="fas fa-magic"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">主動創造</h3>
-                        <p class="text-gray-300">從被動的內容接受者轉變為世界的創造者和故事的共同作者</p>
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-gamepad"></i>
                     </div>
-                    
-                    <div class="card p-6">
-                        <div class="platform-icon mx-auto">
-                            <i class="fas fa-user-cog"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">無限個性化</h3>
-                        <p class="text-gray-300">基於個人數據的實時定制化體驗，達到"一人一世界"</p>
+                    <h3 class="text-xl font-bold mb-4">交互性與自主性</h3>
+                    <p class="text-gray-300">用戶的選擇動態改變叙事走向、環境風貌，娛樂成為充滿可能性的探索空間</p>
+                </div>
+                
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-bolt"></i>
                     </div>
-                    
-                    <div class="card p-6">
-                        <div class="platform-icon mx-auto">
-                            <i class="fas fa-vr-cardboard"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">虛實融合</h3>
-                        <p class="text-gray-300">虛擬與現實無縫交融的混合體驗空間</p>
+                    <h3 class="text-xl font-bold mb-4">實時生成</h3>
+                    <p class="text-gray-300">內容即時生成，根據用戶情緒、環境或指令做出動態響應，提供不可重複的體驗</p>
+                </div>
+                
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-infinity"></i>
                     </div>
-                    
-                    <div class="card p-6">
-                        <div class="platform-icon mx-auto">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">價值共享</h3>
-                        <p class="text-gray-300">創作者、觀眾、平台共同分享價值創造成果</p>
-                    </div>
+                    <h3 class="text-xl font-bold mb-4">涌現性與不可預測性</h3>
+                    <p class="text-gray-300">生成系統的複雜性帶來"不可重複"且"永無止境"的娛樂體驗</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 八大核心平台 -->
-    <section class="section-padding" id="platforms">
+    <!-- 生態系統概覽 -->
+    <section id="ecosystem" class="section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">八大核心平台</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    AI Future構建了一個前所未有的八維一體化生態系統，
-                    每個平台既是獨立的價值創造單元，又與其他平台形成深度協同。
+            <div>
+                <h2 class="section-title gradient-text">八維一體化生態系統</h2>
+                <p class="section-subtitle">
+                    AI Future構建了一個前所未有的八維一體化生態系統，每個板塊既是獨立的價值創造單元，
+                    又與其他板塊形成深度協同，共同構建起AI原生娛樂的完整基礎設施。
                 </p>
             </div>
-            
-            <div class="ecosystem-grid">
-                <!-- 香港AI國際電影節 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-film"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">🎬 香港AI國際電影節</h3>
-                    <p class="text-gray-300 mb-6">
-                        全球AI原生內容的策源地與價值發現中心，發掘優秀AI原生影視作品，
-                        培養10萬+AI+影視複合型人才。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            展映競賽單元
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            AI電影學院
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            AI電影市場
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 404.world平台 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">🌍 404.world平台</h3>
-                    <p class="text-gray-300 mb-6">
-                        無限平行世界的創造引擎與分發平台，AIUGC系統讓用戶與AI協同生成無限內容，
-                        實現Watch-to-Earn機制。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            AIUGC系統
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            個性化互動引擎
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            跨世界導航
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 404.GLASS -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-glasses"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">👓 404.GLASS</h3>
-                    <p class="text-gray-300 mb-6">
-                        現實可編程的下一代智能硬件，無縫融合數字與物理世界，
-                        提供24/7個性化智能陪伴和邊緣計算能力。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            混合現實技術
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            AI助手集成
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            邊緣計算能力
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- World404公園 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-map"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">🎡 World404公園</h3>
-                    <p class="text-gray-300 mb-6">
-                        物理世界的AI原生沉浸體驗空間，300公頃超大規模，
-                        投資280億打造的革命性主題公園。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            多維互動體驗
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            跨物種互動
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            全球首創模式
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- StarOS數字人經紀平台 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">⭐ StarOS數字人經紀平台</h3>
-                    <p class="text-gray-300 mb-6">
-                        明星價值向AI原生世界的遷移橋樑，完整捕捉明星的多維價值特徵，
-                        實現數字永生技術。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            價值基因圖譜
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            數字永生技術
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            粉絲共創生態
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AIFCARD -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-credit-card"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">💳 AIFCARD</h3>
-                    <p class="text-gray-300 mb-6">
-                        創意價值與現實購買力的轉化橋樑，Web3支付生態，
-                        全球首創的創造力價值量化系統。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            Web3支付生態
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            創意信用系統
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            全球流通網絡
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AIF.Exchange -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-exchange-alt"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">🏛 AIF.Exchange</h3>
-                    <p class="text-gray-300 mb-6">
-                        AI原生內容與數字資產的價值發現中心，多鏈資產交易，
-                        內容代幣化和DeFi創新產品。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            多鏈資產交易
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            內容代幣化
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            全球合規運營
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- AI電影學院 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">🎓 AI電影學院</h3>
-                    <p class="text-gray-300 mb-6">
-                        未來創作人才培養的全球搖籃，全球合作網絡，
-                        理論實踐並重的AI原生教育體系。
-                    </p>
-                    <div class="space-y-2">
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            全球合作網絡
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            產業深度融合
-                        </div>
-                        <div class="flex items-center text-sm text-gray-400">
-                            <i class="fas fa-check text-green-400 mr-2"></i>
-                            終身學習體系
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 技術創新 -->
-    <section class="section-padding bg-gray-900 bg-opacity-50" id="technology">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">技術創新突破</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    AI Future建立在三大技術創新支柱之上，形成了獨一無二的技術競爭優勢。
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- AI原生技術棧 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">AI原生技術棧</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-blue-400">多模態大模型融合</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 文本生成引擎：基於GPT-4o的內容創作</li>
-                                <li>• 圖像生成引擎：Midjourney、DALL-E集成</li>
-                                <li>• 視頻生成引擎：Sora、Runway前沿技術</li>
-                                <li>• 音頻生成引擎：AI音樂、配音智能生成</li>
-                                <li>• 3D模型生成：實時3D內容創建</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-blue-400">個性化推薦與交互</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 用戶畫像構建：多維數據精準建模</li>
-                                <li>• 實時內容生成：動態調整內容</li>
-                                <li>• 情感計算引擎：理解用戶情感狀態</li>
-                                <li>• 上下文理解：跨平台連續體驗</li>
-                            </ul>
-                        </div>
-                    </div>
+            <!-- 生態協同價值循環 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="生態系統協同" class="w-full h-96 object-cover rounded-xl">
                 </div>
                 
-                <!-- 區塊鏈與Web3技術 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-link"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">區塊鏈與Web3技術</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-purple-400">多鏈兼容架構</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 以太坊生態：主流DeFi協議兼容</li>
-                                <li>• Polygon擴容：高效低成本交易</li>
-                                <li>• Arbitrum優化：Layer 2擴容方案</li>
-                                <li>• 自主鏈開發：娛樂場景專用鏈</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-purple-400">智能合約體系</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 內容版權保護：不可篡改權益證明</li>
-                                <li>• 收益自動分配：智能分成機制</li>
-                                <li>• 治理機制：去中心化決策系統</li>
-                                <li>• 跨鏈資產橋：多鏈無縫轉移</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-purple-400">NFT與數字資產創新</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 動態NFT：用戶互動變化收藏品</li>
-                                <li>• 分片化所有權：大型IP眾籌擁有</li>
-                                <li>• 時間限定資產：具時效性權益</li>
-                                <li>• 跨媒介綁定：多平台統一身份</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 硬件軟件一體化 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-microchip"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">硬件軟件一體化</h3>
-                    
-                    <div class="space-y-6">
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-green-400">404.GLASS硬件生態</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• AR/VR顯示：4K沉浸式顯示</li>
-                                <li>• 眼球追蹤系統：精準視線交互</li>
-                                <li>• 手勢識別：自然空中操作</li>
-                                <li>• 腦機接口預留：意念控制準備</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-green-400">IoT設備聯動</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 智能家居集成：生活空間結合</li>
-                                <li>• 可穿戴設備：健康數據關聯</li>
-                                <li>• 車載系統：移動娛樂延續</li>
-                                <li>• 公共空間部署：商業體驗升級</li>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4 class="font-bold text-lg mb-3 text-green-400">5G/6G網絡優化</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 超低延遲：實時交互保障</li>
-                                <li>• 邊緣計算節點：就近處理</li>
-                                <li>• 動態帶寬分配：智能調配</li>
-                                <li>• 網絡切片技術：娛樂專用通道</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 發展路線圖 -->
-    <section class="section-padding" id="roadmap">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">三階段發展戰略</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    從0到1，從1到N的跨越：基礎建設期、規模擴張期、生態主導期
-                </p>
-            </div>
-            
-            <div class="timeline">
-                <!-- 第一階段 -->
-                <div class="timeline-item animate-slide-up">
-                    <div class="timeline-date">2025-2027年</div>
-                    <h3 class="text-2xl font-bold mb-4 text-blue-400">第一階段：基礎建設期</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-3">技術基礎設施建設</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 2025年Q2：完成AIF-GPT-Creator大模型訓練</li>
-                                <li>• 2025年Q4：404.world平台核心功能上線</li>
-                                <li>• 2026年Q2：404.GLASS硬件原型機完成</li>
-                                <li>• 2026年Q4：AIF-Chain區塊鏈主網上線</li>
-                                <li>• 2027年Q2：StarOS數字人技術商用級別</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-3">平台生態初建</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 香港AI國際電影節：2025年舉辦首屆</li>
-                                <li>• AI電影學院：2025年開始招生</li>
-                                <li>• AIFCARD系統：2026年正式上線</li>
-                                <li>• AIF.Exchange：2026年獲得運營牌照</li>
-                                <li>• 用戶基礎：累計1000萬註冊用戶</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 bg-blue-900 bg-opacity-30 rounded-lg">
-                        <h4 class="font-bold mb-2">2027年底關鍵指標</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-blue-400">1000萬</div>
-                                <div class="text-xs text-gray-400">註冊用戶</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-400">500萬</div>
-                                <div class="text-xs text-gray-400">月活用戶</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-400">100萬</div>
-                                <div class="text-xs text-gray-400">硬件銷量</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-blue-400">15%</div>
-                                <div class="text-xs text-gray-400">淨利潤率</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 第二階段 -->
-                <div class="timeline-item animate-slide-up">
-                    <div class="timeline-date">2028-2030年</div>
-                    <h3 class="text-2xl font-bold mb-4 text-purple-400">第二階段：規模擴張期</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-3">全球化戰略實施</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 2028年Q1：進入美國市場，設立北美總部</li>
-                                <li>• 2028年Q3：進入歐盟市場，設立歐洲總部</li>
-                                <li>• 2029年Q1：World404公園杭州灣開園</li>
-                                <li>• 2029年Q3：洛杉磯第二個公園建設</li>
-                                <li>• 2030年Q1：覆蓋全球50個國家地區</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-3">產品線全面成熟</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 404.world：月活用戶突破5000萬</li>
-                                <li>• 404.GLASS：年銷量1000萬台</li>
-                                <li>• StarOS：服務1萬+明星和10萬+數字人</li>
-                                <li>• AIFCARD：支持100+國家支付服務</li>
-                                <li>• World404：年接待1200萬遊客</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 bg-purple-900 bg-opacity-30 rounded-lg">
-                        <h4 class="font-bold mb-2">2030年底關鍵指標</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-purple-400">2億</div>
-                                <div class="text-xs text-gray-400">全球用戶</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-purple-400">1000億</div>
-                                <div class="text-xs text-gray-400">市場估值</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-purple-400">30%</div>
-                                <div class="text-xs text-gray-400">市場份額</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-purple-400">32%</div>
-                                <div class="text-xs text-gray-400">營業利潤率</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 第三階段 -->
-                <div class="timeline-item animate-slide-up">
-                    <div class="timeline-date">2031-2035年</div>
-                    <h3 class="text-2xl font-bold mb-4 text-green-400">第三階段：生態主導期</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <h4 class="font-bold mb-3">行業標準制定者</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• AI創作標準：制定全球技術和倫理標準</li>
-                                <li>• 元宇宙協議：主導技術協議標準制定</li>
-                                <li>• 數字資產標準：推動NFT國際標準</li>
-                                <li>• 隱私保護標準：建立AI時代隱私標準</li>
-                                <li>• 教育認證標準：制定全球認證標準</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h4 class="font-bold mb-3">生態系統完善</h4>
-                            <ul class="space-y-2 text-sm text-gray-300">
-                                <li>• 開發者生態：支持100萬+開發者</li>
-                                <li>• 創作者經濟：1000萬創作者獲得收入</li>
-                                <li>• 用戶共創：10億用戶參與創作</li>
-                                <li>• 合作夥伴：與10000+夥伴深度協作</li>
-                                <li>• 全球影響力：最具影響力AI娛樂生態</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mt-6 p-4 bg-green-900 bg-opacity-30 rounded-lg">
-                        <h4 class="font-bold mb-2">2035年願景目標</h4>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div>
-                                <div class="text-2xl font-bold text-green-400">10億</div>
-                                <div class="text-xs text-gray-400">活躍用戶</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-green-400">1000億</div>
-                                <div class="text-xs text-gray-400">年收入($)</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-green-400">絕對</div>
-                                <div class="text-xs text-gray-400">市場領導者</div>
-                            </div>
-                            <div>
-                                <div class="text-2xl font-bold text-green-400">推動</div>
-                                <div class="text-xs text-gray-400">文明轉型</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 生態系統協同 -->
-    <section class="section-padding bg-gray-900 bg-opacity-50" id="ecosystem">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">生態協同與價值流動</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    八大核心板塊深度融合，形成自我強化的價值創造循環，實現1+1>2的生態效應。
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-up">
-                    <img src="https://images.unsplash.com/photo-1634149926093-ec6b9b7f9a8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="生態系統協同" class="w-full h-96 object-cover rounded-xl">
-                </div>
-                
-                <div class="animate-slide-up">
+                <div>
                     <h3 class="text-3xl font-bold mb-8">五大價值循環</h3>
                     
                     <div class="space-y-6">
-                        <div class="card p-6">
+                        <div class="card">
                             <h4 class="font-bold text-lg mb-3 text-blue-400">內容創作價值循環</h4>
                             <p class="text-gray-300 text-sm">
                                 電影節發掘優秀作品 → 404.world平台放大體驗 → 用戶創造衍生內容 → 
@@ -1202,7 +804,7 @@
                             </p>
                         </div>
                         
-                        <div class="card p-6">
+                        <div class="card">
                             <h4 class="font-bold text-lg mb-3 text-purple-400">人才培養價值循環</h4>
                             <p class="text-gray-300 text-sm">
                                 AI電影學院培養人才 → 人才參與生態各項目 → 實踐經驗反哺教學 → 
@@ -1210,7 +812,7 @@
                             </p>
                         </div>
                         
-                        <div class="card p-6">
+                        <div class="card">
                             <h4 class="font-bold text-lg mb-3 text-green-400">經濟價值循環</h4>
                             <p class="text-gray-300 text-sm">
                                 AIF.Exchange價值發現 → AIFCARD支付流通 → 創作者獲得收益 → 
@@ -1218,7 +820,7 @@
                             </p>
                         </div>
                         
-                        <div class="card p-6">
+                        <div class="card">
                             <h4 class="font-bold text-lg mb-3 text-yellow-400">技術創新循環</h4>
                             <p class="text-gray-300 text-sm">
                                 404.GLASS硬件創新 → 為生態提供新體驗載體 → 用戶行為數據反饋 → 
@@ -1226,7 +828,7 @@
                             </p>
                         </div>
                         
-                        <div class="card p-6">
+                        <div class="card">
                             <h4 class="font-bold text-lg mb-3 text-red-400">全球化價值循環</h4>
                             <p class="text-gray-300 text-sm">
                                 香港總部創新研發 → 全球市場驗證推廣 → 本地化反饋優化 → 
@@ -1239,105 +841,269 @@
         </div>
     </section>
 
-    <!-- 社會價值與文化影響 -->
-    <section class="section-padding" id="social-impact">
+    <!-- 八大核心平台 -->
+    <section id="platforms" class="section-padding bg-pattern">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">社會價值與文化影響</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    推動娛樂民主化革命，實現文化創新與傳承，構建全球數字包容的未來。
+            <div>
+                <h2 class="section-title gradient-text">八大核心平台</h2>
+                <p class="section-subtitle">
+                    每個平台都是獨立的價值創造單元，同時與其他平台形成深度協同，
+                    共同構建完整的AI原生娛樂基礎設施。
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- 娛樂民主化 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-users"></i>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- 香港AI國際電影節 -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-film"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">娛樂民主化革命</h3>
-                    <p class="text-gray-300 mb-6">讓每個人都成為創造者，徹底降低創作門槛，實現價值分配的公平化。</p>
-                    
+                    <h3 class="text-2xl font-bold mb-4">🎬 香港AI國際電影節（HKAIIFF）</h3>
+                    <p class="text-gray-300 mb-6">
+                        全球AI原生內容的策源地與價值發現中心，承載著發現、培養、孵化、推廣AI原生內容的全鏈條功能。
+                    </p>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-blue-400 mb-2">創作門檻降低</h4>
+                            <h4 class="font-bold text-blue-400 mb-2">展映競賽單元</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• 零基礎內容創作：自然語言創作複雜內容</li>
-                                <li>• 專業工具普及化：好萊塢級製作工具民主化</li>
-                                <li>• 學習成本降低：AI導師一對一教學</li>
-                                <li>• 經濟門檻消除：從數十萬設備到千元創作</li>
+                                <li>• AI原生長片競賽：至少70%內容由AI生成</li>
+                                <li>• AI原生短片競賽：5-30分鐘創新作品</li>
+                                <li>• AI原生VR/AR作品：沉浸體驗競賽</li>
+                                <li>• 專業評委團：國際化跨界融合評選</li>
                             </ul>
                         </div>
                         
                         <div>
-                            <h4 class="font-bold text-blue-400 mb-2">創意表達擴展</h4>
+                            <h4 class="font-bold text-blue-400 mb-2">AI電影市場</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• 多模態融合表達：文字圖像音樂視頻結合</li>
-                                <li>• 創意邊界拓展：超現實創作無限可能</li>
-                                <li>• 跨文化創作：全球文化元素智能融合</li>
-                                <li>• 傳統文化傳承：非遺數字化保護</li>
+                                <li>• 代幣化眾籌：每個電影項目發行專屬代幣</li>
+                                <li>• NFT預售模式：角色、場景、道具NFT</li>
+                                <li>• 創作者債券：基於歷史表現的債券發行</li>
+                                <li>• AI評估系統：劇本分析和市場預測</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 文化創新與傳承 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-palette"></i>
+                <!-- 404.world平台 -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-globe"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">文化創新與傳承</h3>
-                    <p class="text-gray-300 mb-6">AI時代的文化復興，傳統文化數字化復興與全新文化形態孕育。</p>
-                    
+                    <h3 class="text-2xl font-bold mb-4">🌍 404.world平台</h3>
+                    <p class="text-gray-300 mb-6">
+                        無限平行世界的創造引擎與分發平台，讓每個用戶都能創造和體驗無限平行世界的革命性平台。
+                    </p>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-purple-400 mb-2">傳統文化復興</h4>
+                            <h4 class="font-bold text-purple-400 mb-2">AIUGC系統</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• 非遺數字化：AI精確記錄傳統技藝</li>
-                                <li>• 古典藝術演繹：古畫動態化、古詩音樂化</li>
-                                <li>• 神話傳說重現：構建完整東方神話宇宙</li>
-                                <li>• 節慶文化體驗：虛拟空間體驗傳統節慶</li>
+                                <li>• 多模態內容創作：文本、圖像、視頻、音頻</li>
+                                <li>• 個性化算法核心：深度用戶建模</li>
+                                <li>• 創意放大技術：靈感擴展和風格遷移</li>
+                                <li>• 用戶協同創作：分層創作參與機制</li>
                             </ul>
                         </div>
                         
                         <div>
-                            <h4 class="font-bold text-purple-400 mb-2">新文化形態</h4>
+                            <h4 class="font-bold text-purple-400 mb-2">Watch-to-Earn機制</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• AI原生文化：人機協作藝術形式</li>
-                                <li>• 虛擬文化社區：數字原住民文化</li>
-                                <li>• 全球文化對話：文化多樣性平等交流</li>
-                                <li>• 跨文化理解：文化翻譯智能化</li>
+                                <li>• AIF代幣經濟：5億枚代幣科學分配</li>
+                                <li>• 多層次奖励：觀看、互動、創作、社區建設</li>
+                                <li>• 行為激勵設計：專注度、情感投入評估</li>
+                                <li>• 長期價值培養：忠誠度和技能發展獎勵</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 全球數字包容 -->
-                <div class="card p-8 animate-slide-up">
-                    <div class="platform-icon mx-auto">
-                        <i class="fas fa-globe-asia"></i>
+                <!-- 404.GLASS -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-glasses"></i>
                     </div>
-                    <h3 class="text-2xl font-bold mb-6 text-center">全球數字包容</h3>
-                    <p class="text-gray-300 mb-6">縮小數字鴻溝，讓AI技術惠及全人類，實現真正的技術普惠。</p>
-                    
+                    <h3 class="text-2xl font-bold mb-4">👓 404.GLASS</h3>
+                    <p class="text-gray-300 mb-6">
+                        現實可編程的下一代智能硬件，連接虛擬與現實世界的橋樑，讓現實變得可編程的革命性設備。
+                    </p>
                     <div class="space-y-4">
                         <div>
-                            <h4 class="font-bold text-green-400 mb-2">技術普及使命</h4>
+                            <h4 class="font-bold text-green-400 mb-2">硬件技術架構</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• 發展中國家賦能：網絡基礎設施建設支持</li>
-                                <li>• 教育資源共享：免費線上教育平台</li>
-                                <li>• 特殊群體關懷：殘障人士無障礙設計</li>
-                                <li>• 老年群體服務：簡化介面智能陪伴</li>
+                                <li>• 激光投影技術：4K分辨率120Hz刷新率</li>
+                                <li>• 波導光學：120度超大視野覆蓋</li>
+                                <li>• 6DoF追蹤：精確頭部位置追蹤</li>
+                                <li>• 生理監測：心率、血壓、腦電監測</li>
                             </ul>
                         </div>
                         
                         <div>
-                            <h4 class="font-bold text-green-400 mb-2">數字素養提升</h4>
+                            <h4 class="font-bold text-green-400 mb-2">軟件系統</h4>
                             <ul class="text-sm text-gray-300 space-y-1">
-                                <li>• AI基礎素養：普及AI概念和原理</li>
-                                <li>• 數字創作培養：培養數字內容創作能力</li>
-                                <li>• 終身學習體系：適應技術變化學習模式</li>
-                                <li>• 文化多樣性保護：濒危文化搶救保護</li>
+                                <li>• GlassOS：AI優先設計的操作系統</li>
+                                <li>• 3D空間界面：突破2D限制的用戶界面</li>
+                                <li>• AI助手系統：24/7個性化智能陪伴</li>
+                                <li>• 應用生態：娛樂、生產力、生活服務</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- World404公園 -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-map"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">🎡 World404公園</h3>
+                    <p class="text-gray-300 mb-6">
+                        物理世界的AI原生沉浸體驗空間，300公頃超大規模，投資280億打造的革命性主題公園。
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-yellow-400 mb-2">七大主題宇宙</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 起源之核：園區中央樞紐和技術展示</li>
+                                <li>• 個人宇宙：基於個人數據的定制體驗</li>
+                                <li>• 集體宇宙：多人協同創作體驗空間</li>
+                                <li>• 跨物種宇宙：人類與AI生命互動區域</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-yellow-400 mb-2">革命性體驗設計</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 生物反馈互動：心率、腦電波響應</li>
+                                <li>• 環境響應系統：溫度、氣味、震動反饋</li>
+                                <li>• 跨物種互動：與AI生命體深度交流</li>
+                                <li>• 創造性參與：故事共創和藝術創作</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- StarOS數字人經紀平台 -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">⭐ StarOS數字人經紀平台</h3>
+                    <p class="text-gray-300 mb-6">
+                        明星價值向AI原生世界的遷移橋樑，幫助明星在AI原生時代保持甚至擴大影響力。
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-pink-400 mb-2">明星價值遷移體系</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 多維特徵捕捉：外觀、聲音、性格、情感</li>
+                                <li>• 才藝技能建模：表演、音樂、舞蹈數字化</li>
+                                <li>• 社交互動模式：粉絲互動風格記錄</li>
+                                <li>• 數字永生技術：深度學習神經網路訓練</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-pink-400 mb-2">粉絲經濟重構</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 深度個性化交流：一對一對話體驗</li>
+                                <li>• 虛擬活動參與：私人演唱會、生日慶祝</li>
+                                <li>• 創作協作機會：歌曲共創、劇本編寫</li>
+                                <li>• 經濟價值共享：收益分成和NFT權益</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AIFCARD -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">💳 AIFCARD</h3>
+                    <p class="text-gray-300 mb-6">
+                        創意價值與現實購買力的轉化橋樑，連接Web3世界與現實生活的超級入口。
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-cyan-400 mb-2">創意價值量化</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 多維度創意指標：原創性、影響力、質量</li>
+                                <li>• 創作者能力建模：技能水平和成長曲線</li>
+                                <li>• 市場表現分析：粉絲基礎和品牌價值</li>
+                                <li>• 信用評級體系：鑽石到青銅五級評級</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-cyan-400 mb-2">Web3支付革命</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 多鏈兼容支付：以太坊、Polygon、BSC</li>
+                                <li>• 智能合約體系：自動化支付和結算</li>
+                                <li>• 隱私保護技術：零知識證明身份驗證</li>
+                                <li>• 全球合作網絡：135個國家無縫支付</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AIF.Exchange -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">🏛 AIF.Exchange</h3>
+                    <p class="text-gray-300 mb-6">
+                        AI原生內容與數字資產的價值發現中心，為AI原生內容和創意作品提供價值發現、流動性支持。
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-orange-400 mb-2">AI原生資產交易</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 內容版權代幣：電影、音樂、遊戲IP投資</li>
+                                <li>• 創作者個人代幣：明星未來收益代幣化</li>
+                                <li>• 平台功能代幣：治理、使用權、會員權益</li>
+                                <li>• 智能定價系統：AI價值評估和市場分析</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-orange-400 mb-2">DeFi創新產品</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 創作者信用貸款：基於創作歷史評估</li>
+                                <li>• 粉絲投資產品：眾籌投資和收益分享</li>
+                                <li>• 衍生品交易：期貨、期權、結構化產品</li>
+                                <li>• 全球合規運營：符合各主要市場監管</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI電影學院 -->
+                <div class="card">
+                    <div class="platform-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">🎓 AI電影學院</h3>
+                    <p class="text-gray-300 mb-6">
+                        未來創作人才培養的全球搖籃，承擔著為整個生態系統培養下一代創作者、技術專家和產業領袖的重要使命。
+                    </p>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-bold text-indigo-400 mb-2">教育體系架構</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• AI電影創作專業：4年制理論實踐並重</li>
+                                <li>• 研究生教育：技術、藝術、商業碩博士</li>
+                                <li>• 職業發展項目：認證、培訓、轉型課程</li>
+                                <li>• 項目制學習：基於真實項目實踐教學</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-indigo-400 mb-2">全球合作網絡</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 頂級學術專家：諾貝爾獎、圖靈獎得主</li>
+                                <li>• 實踐導師團隊：獲獎導演、技術專家</li>
+                                <li>• 歐美合作：斯坦福、MIT、USC電影學院</li>
+                                <li>• 亞太合作：清華、東京大學、首爾大學</li>
                             </ul>
                         </div>
                     </div>
@@ -1346,112 +1112,535 @@
         </div>
     </section>
 
-    <!-- 未來願景 -->
-    <section class="section-padding bg-gray-900 bg-opacity-50" id="vision">
+    <!-- 技術創新 -->
+    <section id="technology" class="section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">未來展望</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    AI原生娛樂的未來形態，人類文明的數字化轉型，AIF娛樂集團的終極願景。
+            <div>
+                <h2 class="section-title gradient-text">技術創新與突破</h2>
+                <p class="section-subtitle">
+                    AI Future建立在三大技術創新支柱之上，形成了獨一無二的技術競爭優勢，
+                    重新定義技術架構，構建AI原生技術棧。
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-                <div class="animate-slide-up">
-                    <h3 class="text-3xl font-bold mb-8">AI原生娛樂的未來形態</h3>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- AI原生技術棧 -->
+                <div class="card">
+                    <div class="platform-icon mx-auto">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-center">AI原生技術棧</h3>
                     
                     <div class="space-y-6">
-                        <div class="card p-6">
-                            <h4 class="font-bold text-lg mb-3 text-blue-400">下一代AI技術突破</h4>
-                            <ul class="text-sm text-gray-300 space-y-2">
-                                <li>• <strong>通用人工智能（AGI）：</strong>從工具到真正的創意合作夥伴</li>
-                                <li>• <strong>腦機接口革命：</strong>意念控制虛擬世界和內容</li>
-                                <li>• <strong>全感官沉浸技術：</strong>精確到神經級別的觸覺反饋</li>
-                                <li>• <strong>現實虛擬融合：</strong>虛擬與現實的完全無縫融合</li>
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-blue-400">下一代大語言模型</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• AIF-GPT-Creator：10萬億參數專注創作</li>
+                                <li>• 多模態統一架構：視覺-語言深度融合</li>
+                                <li>• 創意增強算法：靈感生成和風格學習</li>
+                                <li>• 文化適應性調整：本土化內容生成</li>
                             </ul>
                         </div>
                         
-                        <div class="card p-6">
-                            <h4 class="font-bold text-lg mb-3 text-purple-400">體驗模式根本變革</h4>
-                            <ul class="text-sm text-gray-300 space-y-2">
-                                <li>• <strong>集體意識娛樂：</strong>數萬人共同參與大型創作項目</li>
-                                <li>• <strong>跨物種交流：</strong>與AI生命體、動物意識的深度交流</li>
-                                <li>• <strong>時間操控體驗：</strong>自由控制個人體驗的時間流速</li>
-                                <li>• <strong>記忆與歷史互動：</strong>親身體驗重要歷史事件</li>
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-blue-400">專用AI芯片開發</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• AIF-NPU：專用神經網絡處理器</li>
+                                <li>• 低延遲實時處理：毫秒級AI推理</li>
+                                <li>• 高能效比設計：移動設備長時間運算</li>
+                                <li>• 量子計算探索：量子-經典混合架構</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-blue-400">邊緣計算與隱私保護</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 本地AI處理：設備端輕量化模型</li>
+                                <li>• 差分隱私技術：保護隱私的數據利用</li>
+                                <li>• 聯邦學習架構：分布式模型訓練</li>
+                                <li>• 零知識證明：無需泄露數據的驗證</li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="animate-slide-up">
-                    <img src="https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="未來願景" class="w-full h-96 object-cover rounded-xl">
+                <!-- 區塊鏈與Web3技術 -->
+                <div class="card">
+                    <div class="platform-icon mx-auto">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-center">區塊鏈與Web3技術</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-purple-400">AIF-Chain專用鏈</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• DPoS+VRF混合共識：10,000+ TPS處理</li>
+                                <li>• 娛樂專用優化：內容版權保護內置</li>
+                                <li>• 微支付優化：小額高頻支付處理</li>
+                                <li>• 跨鏈互操作：與主流區塊鏈兼容</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-purple-400">智能合約創新</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 版權授權合約：自動化版權管理</li>
+                                <li>• 收益分配合約：多方收益自動分配</li>
+                                <li>• 眾籌投資合約：創作項目眾籌管理</li>
+                                <li>• 社區治理合約：去中心化決策系統</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-purple-400">NFT與數字資產創新</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 動態NFT：根據用戶互動變化</li>
+                                <li>• 分片化所有權：大型IP眾籌擁有</li>
+                                <li>• 時間限定資產：具時效性數字權益</li>
+                                <li>• 跨媒介綁定：多平台統一身份</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 硬件軟件一體化 -->
+                <div class="card">
+                    <div class="platform-icon mx-auto">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-6 text-center">硬件軟件一體化</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-green-400">404.GLASS硬件生態</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• AR/VR顯示：4K沉浸式顯示技術</li>
+                                <li>• 眼球追蹤系統：精準視線交互控制</li>
+                                <li>• 手勢識別：自然空中操作界面</li>
+                                <li>• 腦機接口預留：面向未來意念控制</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-green-400">IoT設備聯動</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 智能家居集成：與生活空間無縫結合</li>
+                                <li>• 可穿戴設備：健康數據與體驗關聯</li>
+                                <li>• 車載系統：移動場景娛樂延續</li>
+                                <li>• 公共空間部署：商業場所體驗升級</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3 text-green-400">5G/6G網絡優化</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• 超低延遲：實時交互網絡保障</li>
+                                <li>• 邊緣計算節點：就近處理減少負擔</li>
+                                <li>• 動態帶寬分配：根據需求智能調配</li>
+                                <li>• 網絡切片技術：娛樂專用優質通道</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 發展路線圖 -->
+    <section id="roadmap" class="section-padding bg-pattern">
+        <div class="container mx-auto px-4">
+            <div>
+                <h2 class="section-title gradient-text">三階段發展戰略</h2>
+                <p class="section-subtitle">
+                    從0到1，從1到N的跨越：基礎建設期、規模擴張期、生態主導期，
+                    每個階段都有明確的目標和里程碑。
+                </p>
+            </div>
+            
+            <div class="timeline">
+                <!-- 第一階段 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2025-2027年</div>
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">第一階段：基礎建設期</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3">技術基礎設施建設</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>2025年Q2：</strong>完成AIF-GPT-Creator大模型初版訓練</li>
+                                <li>• <strong>2025年Q4：</strong>404.world平台核心功能上線測試</li>
+                                <li>• <strong>2026年Q2：</strong>404.GLASS硬件原型機完成開發</li>
+                                <li>• <strong>2026年Q4：</strong>AIF-Chain區塊鏈主網正式上線</li>
+                                <li>• <strong>2027年Q2：</strong>StarOS數字人技術達到商用級別</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">平台生態初建</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>香港AI國際電影節：</strong>2025年舉辦首屆，確立行業地位</li>
+                                <li>• <strong>AI電影學院：</strong>2025年開始招生，培養首批學員</li>
+                                <li>• <strong>AIFCARD系統：</strong>2026年正式上線，支持基礎支付</li>
+                                <li>• <strong>AIF.Exchange：</strong>2026年獲得運營牌照，開始交易</li>
+                                <li>• <strong>用戶基礎：</strong>累計註冊用戶1000萬，活躍500萬</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                        <h4 class="font-bold mb-4">2027年底關鍵成功指標</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-400">1000萬</div>
+                                <div class="text-xs text-gray-400">註冊用戶</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-400">500萬</div>
+                                <div class="text-xs text-gray-400">月活用戶</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-400">100萬</div>
+                                <div class="text-xs text-gray-400">硬件銷量</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-blue-400">15%</div>
+                                <div class="text-xs text-gray-400">淨利潤率</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第二階段 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2028-2030年</div>
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">第二階段：規模擴張期</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3">全球化戰略實施</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>2028年Q1：</strong>進入美國市場，在洛杉磯設立北美總部</li>
+                                <li>• <strong>2028年Q3：</strong>進入歐盟市場，在倫敦設立歐洲總部</li>
+                                <li>• <strong>2029年Q1：</strong>World404公園在杭州灣正式開園</li>
+                                <li>• <strong>2029年Q3：</strong>在洛杉磯開始建設第二個World404公園</li>
+                                <li>• <strong>2030年Q1：</strong>覆蓋全球50個國家和地區</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">產品線全面成熟</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>404.world：</strong>月活用戶突破5000萬</li>
+                                <li>• <strong>404.GLASS：</strong>年銷量達到1000萬台</li>
+                                <li>• <strong>StarOS：</strong>服務1萬+明星和10萬+數字人</li>
+                                <li>• <strong>AIFCARD：</strong>支持100+國家的支付服務</li>
+                                <li>• <strong>World404：</strong>年接待游客1200萬人次</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-purple-900 bg-opacity-30 rounded-lg p-4">
+                        <h4 class="font-bold mb-4">2030年底關鍵成功指標</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">2億</div>
+                                <div class="text-xs text-gray-400">全球用戶</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">1000億</div>
+                                <div class="text-xs text-gray-400">市場估值($)</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">30%</div>
+                                <div class="text-xs text-gray-400">市場份額</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-purple-400">32%</div>
+                                <div class="text-xs text-gray-400">營業利潤率</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 第三階段 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">2031-2035年</div>
+                    <h3 class="text-2xl font-bold mb-4 text-green-400">第三階段：生態主導期</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold mb-3">行業標準制定者</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>AI創作標準：</strong>制定全球AI創作技術和倫理標準</li>
+                                <li>• <strong>元宇宙協議：</strong>主導元宇宙技術協議和標準制定</li>
+                                <li>• <strong>數字資產標準：</strong>推動數字資產和NFT國際標準</li>
+                                <li>• <strong>隱私保護標準：</strong>建立AI時代隱私保護標準</li>
+                                <li>• <strong>教育認證標準：</strong>制定AI創作教育全球認證標準</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-3">生態系統完善</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li>• <strong>開發者生態：</strong>支持100萬+開發者的完整生態</li>
+                                <li>• <strong>創作者經濟：</strong>1000萬創作者在平台獲得收入</li>
+                                <li>• <strong>用戶共創：</strong>10億用戶參與內容創作和平台建設</li>
+                                <li>• <strong>合作伙伴：</strong>與10000+合作伙伴深度協作網絡</li>
+                                <li>• <strong>全球影響力：</strong>成為最具影響力AI娛樂生態</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mt-6 bg-green-900 bg-opacity-30 rounded-lg p-4">
+                        <h4 class="font-bold mb-4">2035年願景目標</h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">10億</div>
+                                <div class="text-xs text-gray-400">活躍用戶</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">絕對</div>
+                                <div class="text-xs text-gray-400">市場領導者</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">推動</div>
+                                <div class="text-xs text-gray-400">文明轉型</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-green-400">引領</div>
+                                <div class="text-xs text-gray-400">新時代</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 市場分析 -->
+    <section id="market" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div>
+                <h2 class="section-title gradient-text">市場規模與機遇</h2>
+                <p class="section-subtitle">
+                    AI原生娛樂正處於爆發式增長的前夜，萬億級市場機遇即將開啟，
+                    我們正站在一個歷史性的投資機會面前。
+                </p>
+            </div>
+            
+            <!-- 市場規模預測 -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-8">全球市場容量預測</h3>
+                    <div class="space-y-6">
+                        <div class="card">
+                            <h4 class="font-bold text-lg mb-3 text-blue-400">2025年市場基線</h4>
+                            <p class="text-gray-300 mb-4">
+                                全球AI娛樂市場規模達到<span class="text-blue-400 font-bold">1500億美元</span>，
+                                為AI Future提供了堅實的市場基礎。
+                            </p>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 生成式AI在媒體娛樂：14億美元</li>
+                                <li>• 預測性AI應用：15億美元</li>
+                                <li>• 傳統娛樂AI化改造：1470億美元</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="font-bold text-lg mb-3 text-purple-400">2030年市場爆發</h4>
+                            <p class="text-gray-300 mb-4">
+                                預計市場規模將達到<span class="text-purple-400 font-bold">8000億美元</span>，
+                                年複合增長率達到<span class="text-purple-400 font-bold">40%</span>。
+                            </p>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• AI內容創作：3000億美元</li>
+                                <li>• AR/VR硬件：2000億美元</li>
+                                <li>• 數字資產交易：1500億美元</li>
+                                <li>• AI教育培訓：1000億美元</li>
+                                <li>• 虛擬娛樂體驗：500億美元</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="card">
+                            <h4 class="font-bold text-lg mb-3 text-green-400">2035年願景實現</h4>
+                            <p class="text-gray-300 mb-4">
+                                AI原生娛樂成為主流，市場規模達到<span class="text-green-400 font-bold">2萬億美元</span>，
+                                重新定義整個娛樂產業格局。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="市場增長圖表" class="w-full h-96 object-cover rounded-xl">
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="animate-slide-up">
-                    <img src="https://images.unsplash.com/photo-1634149926093-ec6b9b7f9a8f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="人類文明轉型" class="w-full h-96 object-cover rounded-xl">
-                </div>
-                
-                <div class="animate-slide-up">
-                    <h3 class="text-3xl font-bold mb-8">人類文明的數字化轉型</h3>
-                    
-                    <div class="space-y-6">
-                        <div class="card p-6">
-                            <h4 class="font-bold text-lg mb-3 text-green-400">文明演進關鍵節點</h4>
-                            <ul class="text-sm text-gray-300 space-y-2">
-                                <li>• <strong>數字原住民時代：</strong>AI原生思維的新一代人類</li>
-                                <li>• <strong>社會結構重構：</strong>創作者中心的新社會結構</li>
-                                <li>• <strong>集體智慧涌現：</strong>人機協同產生的新型智慧</li>
-                                <li>• <strong>知識獲取革命：</strong>體驗式深度知識獲取</li>
-                            </ul>
+            <!-- 區域市場分布 -->
+            <div>
+                <h3 class="text-3xl font-bold text-center mb-8">全球市場戰略布局</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card text-center">
+                        <div class="text-3xl mb-4">🌏</div>
+                        <h4 class="font-bold text-lg mb-2 text-blue-400">亞太地區</h4>
+                        <div class="text-2xl font-bold text-blue-400 mb-2">40%</div>
+                        <p class="text-sm text-gray-300">市場份額，年增長率45%</p>
+                        <div class="mt-4 text-xs text-gray-400">
+                            香港、中國大陸、日本、韓國、新加坡
                         </div>
-                        
-                        <div class="card p-6">
-                            <h4 class="font-bold text-lg mb-3 text-yellow-400">人類潛能全面釋放</h4>
-                            <ul class="text-sm text-gray-300 space-y-2">
-                                <li>• <strong>創造力無限擴展：</strong>超越物理限制的自由創作</li>
-                                <li>• <strong>想象力具象化：</strong>將夢境和幻想轉化為現實</li>
-                                <li>• <strong>學習能力提升：</strong>個性化學習革命</li>
-                                <li>• <strong>全人類知識共享：</strong>知識民主化和專家智慧普及</li>
-                            </ul>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="text-3xl mb-4">🇺🇸</div>
+                        <h4 class="font-bold text-lg mb-2 text-purple-400">北美地區</h4>
+                        <div class="text-2xl font-bold text-purple-400 mb-2">35%</div>
+                        <p class="text-sm text-gray-300">市場份額，年增長率35%</p>
+                        <div class="mt-4 text-xs text-gray-400">
+                            美國、加拿大
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="text-3xl mb-4">🇪🇺</div>
+                        <h4 class="font-bold text-lg mb-2 text-green-400">歐洲地區</h4>
+                        <div class="text-2xl font-bold text-green-400 mb-2">20%</div>
+                        <p class="text-sm text-gray-300">市場份額，年增長率30%</p>
+                        <div class="mt-4 text-xs text-gray-400">
+                            英國、德國、法國、北歐
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="text-3xl mb-4">🌍</div>
+                        <h4 class="font-bold text-lg mb-2 text-yellow-400">其他地區</h4>
+                        <div class="text-2xl font-bold text-yellow-400 mb-2">5%</div>
+                        <p class="text-sm text-gray-300">市場份額，年增長率55%</p>
+                        <div class="mt-4 text-xs text-gray-400">
+                            拉美、中東、非洲
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- 競爭優勢分析 -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center mb-8">AIF的競爭優勢</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="card">
+                        <div class="platform-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">AI原生設計</h4>
+                        <p class="text-gray-300 text-sm">
+                            全球首個從底層設計的AI原生娛樂技術棧，而非後加功能
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="platform-icon">
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">硬件軟件一體</h4>
+                        <p class="text-gray-300 text-sm">
+                            獨特的硬件軟件深度集成模式，提供完整解決方案
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="platform-icon">
+                            <i class="fas fa-globe-asia"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">亞洲文化根基</h4>
+                        <p class="text-gray-300 text-sm">
+                            深植亞洲文化的全球化優勢，連接東西方文化
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="platform-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-3">創作者經濟</h4>
+                        <p class="text-gray-300 text-sm">
+                            以創作者收益為核心的商業模式，實現價值共創共享
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 未來願景 -->
+    <section id="vision" class="section-padding bg-pattern">
+        <div class="container mx-auto px-4">
+            <div>
+                <h2 class="section-title gradient-text">未來展望</h2>
+                <p class="section-subtitle">
+                    AI原生娛樂的未來形態，人類文明的數字化轉型，AIF娛樂集團的終極願景，
+                    引領人類進入"人人都是創世神"的新紀元。
+                </p>
             </div>
             
             <!-- AIF娛樂集團終極願景 -->
-            <div class="mt-20 text-center animate-fade-in">
-                <h3 class="text-4xl font-bold mb-8 gradient-text">AIF娛樂集團的終極願景</h3>
-                <div class="max-w-4xl mx-auto">
-                    <p class="text-xl text-gray-300 mb-12 leading-relaxed">
-                        成為人類文明進步的推動者，構建人類命運共同體的數字橋樑，
-                        開拓人類文明新時代，引領人類進入"人人都是創世神"的新紀元。
-                    </p>
+            <div>
+                <h3 class="text-4xl font-bold text-center mb-12 gradient-text">AIF娛樂集團的終極願景</h3>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                    <div class="card text-center">
+                        <div class="platform-icon mx-auto">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">成為人類文明進步的推動者</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 text-left">
+                            <li>• <strong>技術創新持續引領：</strong>基礎研究深度投入和標準制定主導</li>
+                            <li>• <strong>社會價值積極創造：</strong>教育普及使命和文化保護創新</li>
+                            <li>• <strong>開源技術貢獻：</strong>向全人類開源核心技術成果</li>
+                        </ul>
+                    </div>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        <div class="card p-8">
-                            <div class="platform-icon mx-auto">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-4">技術創新引領</h4>
-                            <p class="text-gray-300">持續引領技術創新，建立行業標準，推動人類向AI原生文明跨越</p>
+                    <div class="card text-center">
+                        <div class="platform-icon mx-auto">
+                            <i class="fas fa-handshake"></i>
                         </div>
-                        
-                        <div class="card p-8">
-                            <div class="platform-icon mx-auto">
-                                <i class="fas fa-heart"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-4">社會價值創造</h4>
-                            <p class="text-gray-300">積極創造社會價值，推動教育普及，保護文化多樣性，促進全球合作</p>
+                        <h4 class="text-xl font-bold mb-4">構建人類命運共同體的數字橋樑</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 text-left">
+                            <li>• <strong>全球連接深化：</strong>消除數字鴻溝和能力建設支持</li>
+                            <li>• <strong>文化理解促進：</strong>跨文化體驗和偏見消除機制</li>
+                            <li>• <strong>共同挑戰應對：</strong>氣候變化和貧困不平等消除</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="platform-icon mx-auto">
+                            <i class="fas fa-crown"></i>
                         </div>
-                        
-                        <div class="card p-8">
-                            <div class="platform-icon mx-auto">
-                                <i class="fas fa-infinity"></i>
-                            </div>
-                            <h4 class="text-xl font-bold mb-4">文明進步推動</h4>
-                            <p class="text-gray-300">成為推動人類文明進步的積極力量，引領人類邁向更加美好的未來</p>
+                        <h4 class="text-xl font-bold mb-4">人類文明新時代的開拓者</h4>
+                        <ul class="text-sm text-gray-300 space-y-2 text-left">
+                            <li>• <strong>新文明形態設計：</strong>AI人類協同文明和數字精神文明</li>
+                            <li>• <strong>未來社會構建：</strong>理想社會模型和人類潛能釋放</li>
+                            <li>• <strong>文明演進引導：</strong>引導文明向更高層次演進</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="text-center bg-gray-900 bg-opacity-50 rounded-xl p-8">
+                    <h4 class="text-2xl font-bold mb-6">我們的承諾</h4>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                        <div>
+                            <h5 class="font-bold text-blue-400 mb-2">對創作者的承諾</h5>
+                            <p class="text-sm text-gray-300">建立真正公平的創作者經濟，讓每一個有創意的靈魂都能獲得應有回報和尊重</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-purple-400 mb-2">對用戶的承諾</h5>
+                            <p class="text-sm text-gray-300">提供前所未有的個性化體驗，讓每個用戶都能找到屬於自己的無限世界</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-green-400 mb-2">對合作伙伴的承諾</h5>
+                            <p class="text-sm text-gray-300">構建開放共贏的生態系統，與所有合作伙伴共同成長，共享價值</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-yellow-400 mb-2">對投資者的承諾</h5>
+                            <p class="text-sm text-gray-300">以創新驅動價值創造，以技術推動商業成功，實現長期可持續投資回報</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-red-400 mb-2">對社會的承諾</h5>
+                            <p class="text-sm text-gray-300">承擔企業社會責任，推動技術進步惠及全人類，促進世界和平與發展</p>
+                        </div>
+                        <div>
+                            <h5 class="font-bold text-cyan-400 mb-2">對未來的承諾</h5>
+                            <p class="text-sm text-gray-300">成為推動人類文明進步的積極力量，引領人類邁向更加美好的未來</p>
                         </div>
                     </div>
                 </div>
@@ -1460,114 +1649,115 @@
     </section>
 
     <!-- 聯繫我們 -->
-    <section class="section-padding" id="contact">
+    <section id="contact" class="section-padding">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-16 animate-fade-in">
-                <h2 class="section-title center text-4xl font-bold mb-8">加入AI Future</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    攜手共創無限未來，與我們一起重新定義人類娛樂體驗，
-                    在無限可能的宇宙中成為創造者。
+            <div>
+                <h2 class="section-title gradient-text">攜手共創無限未來</h2>
+                <p class="section-subtitle">
+                    與我們一起重新定義人類娛樂體驗，在無限可能的宇宙中成為創造者。
+                    AI Future不是終點，而是一個新開始。
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div class="grid lg:grid-cols-2 gap-12">
                 <!-- 聯繫表單 -->
-                <div class="card p-8 animate-slide-up">
+                <div class="card">
                     <h3 class="text-2xl font-bold mb-6">與我們聯繫</h3>
-                    <form class="space-y-6">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <form class="space-y-6" id="contactForm">
+                        <div class="grid md:grid-cols-2 gap-4">
                             <div>
-                                <label class="block text-sm font-medium mb-2">姓名</label>
-                                <input type="text" class="input-field" placeholder="請輸入您的姓名">
+                                <label class="block text-sm font-medium mb-2">姓名 *</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-green-400 focus:outline-none transition-colors" placeholder="請輸入您的姓名">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-2">電子郵件</label>
-                                <input type="email" class="input-field" placeholder="請輸入您的郵箱">
+                                <label class="block text-sm font-medium mb-2">電子郵件 *</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-green-400 focus:outline-none transition-colors" placeholder="請輸入您的郵箱">
                             </div>
                         </div>
                         <div>
                             <label class="block text-sm font-medium mb-2">機構/公司</label>
-                            <input type="text" class="input-field" placeholder="請輸入您的機構或公司">
+                            <input type="text" class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-green-400 focus:outline-none transition-colors" placeholder="請輸入您的機構或公司">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">合作類型</label>
-                            <select class="input-field">
-                                <option>請選擇合作類型</option>
-                                <option>投資合作</option>
-                                <option>技術合作</option>
-                                <option>內容創作</option>
-                                <option>教育培訓</option>
-                                <option>媒體報導</option>
-                                <option>其他</option>
+                            <label class="block text-sm font-medium mb-2">合作類型 *</label>
+                            <select required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-green-400 focus:outline-none transition-colors">
+                                <option value="">請選擇合作類型</option>
+                                <option value="investment">投資合作</option>
+                                <option value="technology">技術合作</option>
+                                <option value="content">內容創作</option>
+                                <option value="education">教育培訓</option>
+                                <option value="media">媒體報導</option>
+                                <option value="partnership">戰略合作</option>
+                                <option value="other">其他</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium mb-2">留言</label>
-                            <textarea class="input-field h-32" placeholder="請詳細描述您的需求或想法"></textarea>
+                            <label class="block text-sm font-medium mb-2">留言 *</label>
+                            <textarea required class="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:border-green-400 focus:outline-none transition-colors h-32" placeholder="請詳細描述您的需求或想法"></textarea>
                         </div>
-                        <button type="submit" class="btn-primary w-full">
+                        <button type="submit" class="btn-primary w-full text-lg py-4">
                             提交申請
                         </button>
                     </form>
                 </div>
                 
                 <!-- 聯繫信息 -->
-                <div class="animate-slide-up">
-                    <div class="card p-8 mb-8">
+                <div>
+                    <div class="card mb-8">
                         <h3 class="text-2xl font-bold mb-6">聯繫信息</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-map-marker-alt text-blue-400 mr-4"></i>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-green-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">總部地址</div>
+                                    <div class="font-semibold mb-1">總部地址</div>
                                     <div class="text-gray-300">香港中環國際金融中心</div>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-400 mr-4"></i>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-green-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">郵箱</div>
+                                    <div class="font-semibold mb-1">郵箱</div>
                                     <div class="text-gray-300">info@aif.homes</div>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-globe text-blue-400 mr-4"></i>
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-green-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">官網</div>
+                                    <div class="font-semibold mb-1">官網</div>
                                     <div class="text-gray-300">www.aif.homes</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="card p-8">
+                    <div class="card">
                         <h3 class="text-2xl font-bold mb-6">專業聯繫</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-handshake text-purple-400 mr-4"></i>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-handshake text-blue-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">投資者關係</div>
+                                    <div class="font-semibold mb-1">投資者關係</div>
                                     <div class="text-gray-300">ir@aif.homes</div>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-newspaper text-purple-400 mr-4"></i>
+                            <div class="flex items-start">
+                                <i class="fas fa-newspaper text-purple-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">媒體聯繫</div>
+                                    <div class="font-semibold mb-1">媒體聯繫</div>
                                     <div class="text-gray-300">media@aif.homes</div>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-users text-purple-400 mr-4"></i>
+                            <div class="flex items-start">
+                                <i class="fas fa-users text-green-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">合作洽談</div>
+                                    <div class="font-semibold mb-1">合作洽談</div>
                                     <div class="text-gray-300">partnership@aif.homes</div>
                                 </div>
                             </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-user-tie text-purple-400 mr-4"></i>
+                            <div class="flex items-start">
+                                <i class="fas fa-user-tie text-yellow-400 mr-4 mt-1"></i>
                                 <div>
-                                    <div class="font-medium">人才招聘</div>
+                                    <div class="font-semibold mb-1">人才招聘</div>
                                     <div class="text-gray-300">careers@aif.homes</div>
                                 </div>
                             </div>
@@ -1575,154 +1765,197 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- 行動呼籲 -->
+            <div class="text-center mt-16">
+                <div class="bg-gradient-to-r from-primary to-secondary rounded-xl p-8 text-white">
+                    <h3 class="text-3xl font-bold mb-4">歡迎來到AI Future的世界</h3>
+                    <p class="text-xl mb-6 opacity-90">未來，從這裡開始</p>
+                    <p class="text-lg mb-8 opacity-80">
+                        在這裡，每個夢想都有實現的可能<br>
+                        在這裡，每個創意都能改變世界<br>
+                        在這裡，每個人都是無限宇宙的創造者
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#whitepaper" class="btn-secondary bg-white text-primary hover:bg-gray-100">
+                            <i class="fas fa-download mr-2"></i>下載完整白皮書
+                        </a>
+                        <a href="mailto:ir@aif.homes" class="btn-secondary border-white text-white hover:bg-white hover:text-primary">
+                            <i class="fas fa-envelope mr-2"></i>聯繫投資團隊
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 底部 -->
-    <footer class="py-12 bg-black bg-opacity-50">
+    <!-- 頁腳 -->
+    <footer class="footer">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- 公司信息 -->
                 <div>
-                    <div class="flex flex-col items-start mb-4">
-                        <div class="logo-font">AI FUTURE</div>
-                        <div class="logo-sub">AIF娛樂集團</div>
+                    <div class="flex flex-col items-start mb-6">
+                        <div class="logo-text text-xl">AI FUTURE</div>
+                        <div class="logo-subtitle text-xs">AIF 娛樂集團</div>
                     </div>
-                    <p class="text-gray-400 mb-4">
+                    <p class="text-gray-400 mb-6">
                         重新定義人類娛樂體驗的終極願景，讓每個人都成為無限可能世界的創造者。
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-discord"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-medium"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-blue-400"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-medium text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-400 transition-colors">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
                     </div>
                 </div>
+                
+                <!-- 核心平台 -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">核心平台</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-green-400">核心平台</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">香港AI國際電影節</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">404.world平台</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">404.GLASS</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">World404公園</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">StarOS平台</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">香港AI國際電影節</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">404.world平台</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">404.GLASS</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">World404公園</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">StarOS平台</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AIFCARD</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AIF.Exchange</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">AI電影學院</a></li>
                     </ul>
                 </div>
+                
+                <!-- 投資與合作 -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">服務與支持</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-green-400">投資與合作</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">AIFCARD</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">AIF.Exchange</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">AI電影學院</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">開發者中心</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">技術支持</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">投資者關係</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">戰略合作</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">技術授權</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">開發者中心</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">媒體中心</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">人才招聘</a></li>
                     </ul>
                 </div>
+                
+                <!-- 法律與合規 -->
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">法律與合規</h3>
+                    <h3 class="text-lg font-semibold mb-4 text-green-400">法律與合規</h3>
                     <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">使用條款</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">隱私政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">版權政策</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">監管合規</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-blue-400">風險披露</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">使用條款</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">隱私政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">版權政策</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">監管合規</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">風險披露</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">ESG報告</a></li>
                     </ul>
                 </div>
             </div>
+            
+            <!-- 版權信息 -->
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-                <p>© 2025 AIF娛樂集團 版權所有 | 重新定義現實，創造無限可能</p>
-                <p class="mt-2">本白皮書中涉及的前瞻性陳述基於當前預期，實際結果可能有所差異</p>
+                <div class="mb-4">
+                    <p>© 2025 AIF娛樂集團 版權所有</p>
+                    <p class="mt-2">"重新定義現實，創造無限可能"</p>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-8">
+                    <span>Redefining Reality, Creating Infinite Possibilities</span>
+                    <span>|</span>
+                    <span>總部地址：香港中環國際金融中心</span>
+                    <span>|</span>
+                    <span>官網：www.aif.homes</span>
+                </div>
+                <div class="mt-4 text-xs opacity-70">
+                    <p>本白皮書中涉及的前瞻性陳述基於當前預期，實際結果可能有所差異</p>
+                    <p>投資有風險，請謹慎決策</p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- 返回頂部按鈕 -->
+    <button id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary rounded-full text-white shadow-lg opacity-0 transition-all duration-300 hover:bg-primary-dark hover:transform hover:scale-110 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 白皮書下載模態框 -->
+    <div id="whitepaperModal" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-gray-900 rounded-xl p-8 max-w-md w-full mx-4 transform scale-95 transition-transform duration-300">
+            <div class="text-center">
+                <div class="text-4xl mb-4">📄</div>
+                <h3 class="text-2xl font-bold mb-4">下載AI Future白皮書</h3>
+                <p class="text-gray-300 mb-6">
+                    獲取完整的項目白皮書，深入了解AI Future的技術架構、商業模式和發展戰略。
+                </p>
+                <div class="space-y-4">
+                    <a href="#" class="btn-primary w-full block text-center">
+                        <i class="fas fa-download mr-2"></i>立即下載（PDF）
+                    </a>
+                    <button onclick="closeWhitepaperModal()" class="btn-secondary w-full">
+                        稍後下載
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // 添加隨機數據流
-        function createDataStreams() {
-            for (let i = 0; i < 3; i++) {
-                setTimeout(() => {
-                    const stream = document.createElement('div');
-                    stream.className = 'data-stream';
-                    stream.style.left = Math.random() * 100 + '%';
-                    stream.style.animationDelay = Math.random() * 2 + 's';
-                    document.body.appendChild(stream);
-                    
-                    // 動畫結束後移除
-                    setTimeout(() => {
-                        stream.remove();
-                    }, 4000);
-                }, i * 3000);
-            }
-        }
+        // 全局變量
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        const scrollIndicator = document.querySelector('.scroll-indicator');
+        const backToTopBtn = document.getElementById('backToTop');
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
         
         // 初始化
         document.addEventListener('DOMContentLoaded', function() {
-            // 開始數據流
-            createDataStreams();
-            setInterval(createDataStreams, 15000);
+            initializeNavigation();
+            initializeScrollEffects();
+            initializeForms();
+            updateActiveSection();
+        });
+        
+        // 導航初始化
+        function initializeNavigation() {
+            // 漢堡菜單切換
+            if (hamburger && mobileMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    mobileMenu.classList.toggle('open');
+                    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : 'auto';
+                });
+            }
             
-            // 滾動動畫
-            const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        if (entry.target.classList.contains('animate-slide-up')) {
-                            entry.target.style.transform = 'translateY(0)';
-                        }
-                        if (entry.target.classList.contains('animate-fade-in')) {
-                            entry.target.style.transform = 'scale(1)';
-                        }
+            // 移動端菜單項點擊
+            document.querySelectorAll('.mobile-menu-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (hamburger && mobileMenu) {
+                        hamburger.classList.remove('active');
+                        mobileMenu.classList.remove('open');
+                        document.body.style.overflow = 'auto';
                     }
                 });
-            }, { threshold: 0.1 });
-            
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                if (el.classList.contains('animate-slide-up')) {
-                    el.style.transform = 'translateY(50px)';
-                }
-                if (el.classList.contains('animate-fade-in')) {
-                    el.style.transform = 'scale(0.95)';
-                }
-                observer.observe(el);
             });
             
-            // 移動端菜單功能
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const mobileMenuClose = document.querySelector('.mobile-menu-close');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            mobileMenuClose.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                document.body.style.overflow = 'auto';
-            });
-            
-            // 移動端導航連結點擊後關閉菜單
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('open');
-                    document.body.style.overflow = 'auto';
-                });
-            });
-            
-            // 平滑滾動導航
-            const navLinks = document.querySelectorAll('a[href^="#"]');
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
+            // 平滑滾動
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    const targetId = link.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if (targetElement) {
-                        const offsetTop = targetElement.offsetTop - 80; // 考慮導航欄高度
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offsetTop = target.offsetTop - 100;
                         window.scrollTo({
                             top: offsetTop,
                             behavior: 'smooth'
@@ -1730,217 +1963,188 @@
                     }
                 });
             });
-            
-            // 表單提交處理
-            const contactForm = document.querySelector('form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    alert('感謝您的留言！我們將盡快與您聯繫。');
-                });
-            }
-            
-            // 導航欄滾動效果
-            let lastScrollTop = 0;
-            const navbar = document.querySelector('.navbar');
-            
+        }
+        
+        // 滾動效果初始化
+        function initializeScrollEffects() {
             window.addEventListener('scroll', () => {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const scrollTop = window.pageYOffset;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
                 
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    // 向下滾動，隱藏導航欄
-                    navbar.style.transform = 'translateY(-100%)';
-                } else {
-                    // 向上滾動，顯示導航欄
-                    navbar.style.transform = 'translateY(0)';
+                // 更新滾動進度條
+                if (scrollIndicator) {
+                    scrollIndicator.style.width = scrollPercent + '%';
+                }
+                
+                // 導航欄效果
+                if (navbar) {
+                    if (scrollTop > lastScrollTop && scrollTop > 100) {
+                        navbar.style.transform = 'translateY(-100%)';
+                    } else {
+                        navbar.style.transform = 'translateY(0)';
+                        navbar.classList.toggle('scrolled', scrollTop > 50);
+                    }
+                }
+                
+                // 返回頂部按鈕
+                if (backToTopBtn) {
+                    if (scrollTop > 500) {
+                        backToTopBtn.style.opacity = '1';
+                        backToTopBtn.style.pointerEvents = 'auto';
+                    } else {
+                        backToTopBtn.style.opacity = '0';
+                        backToTopBtn.style.pointerEvents = 'none';
+                    }
                 }
                 
                 lastScrollTop = scrollTop;
+                updateActiveSection();
             });
             
-            // 統計數字動畫
-            const statsNumbers = document.querySelectorAll('.stats-card .number');
-            
-            const animateStats = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const target = entry.target;
-                        const finalNumber = target.textContent.replace(/[^0-9]/g, '');
-                        const suffix = target.textContent.replace(/[0-9]/g, '');
-                        
-                        if (finalNumber) {
-                            let current = 0;
-                            const increment = finalNumber / 50;
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= finalNumber) {
-                                    target.textContent = finalNumber + suffix;
-                                    clearInterval(timer);
-                                } else {
-                                    target.textContent = Math.floor(current) + suffix;
-                                }
-                            }, 50);
-                        }
-                        
-                        observer.unobserve(target);
-                    }
+            // 返回頂部
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
-            };
+            }
+        }
+        
+        // 更新活動區段
+        function updateActiveSection() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
             
-            const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
-            statsNumbers.forEach(num => statsObserver.observe(num));
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
             
-            // 添加鼠標移動視差效果
-            document.addEventListener('mousemove', (e) => {
-                const cards = document.querySelectorAll('.card');
-                const mouseX = e.clientX / window.innerWidth;
-                const mouseY = e.clientY / window.innerHeight;
-                
-                cards.forEach((card, index) => {
-                    const speed = (index % 3 + 1) * 0.5;
-                    const x = (mouseX - 0.5) * speed;
-                    const y = (mouseY - 0.5) * speed;
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        // 表單初始化
+        function initializeForms() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
                     
-                    card.style.transform = `translate(${x}px, ${y}px)`;
+                    // 簡單的表單驗證
+                    const name = this.querySelector('input[type="text"]').value;
+                    const email = this.querySelector('input[type="email"]').value;
+                    const type = this.querySelector('select').value;
+                    const message = this.querySelector('textarea').value;
+                    
+                    if (!name || !email || !type || !message) {
+                        showNotification('請填寫所有必填字段', 'error');
+                        return;
+                    }
+                    
+                    // 模擬表單提交
+                    showNotification('感謝您的留言！我們將盡快與您聯繫。', 'success');
+                    this.reset();
                 });
-            });
+            }
+        }
+        
+        // 通知功能
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 px-6 py-4 rounded-lg text-white z-50 transform translate-x-full transition-transform duration-300 ${
+                type === 'success' ? 'bg-green-600' : 
+                type === 'error' ? 'bg-red-600' : 'bg-blue-600'
+            }`;
+            notification.textContent = message;
             
-            // 添加鍵盤導航支持
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+        
+        // 白皮書模態框功能
+        function openWhitepaperModal() {
+            const modal = document.getElementById('whitepaperModal');
+            if (modal) {
+                modal.style.pointerEvents = 'auto';
+                modal.style.opacity = '1';
+                const content = modal.querySelector('.bg-gray-900');
+                if (content) {
+                    content.style.transform = 'scale(1)';
+                }
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeWhitepaperModal() {
+            const modal = document.getElementById('whitepaperModal');
+            if (modal) {
+                modal.style.opacity = '0';
+                const content = modal.querySelector('.bg-gray-900');
+                if (content) {
+                    content.style.transform = 'scale(0.95)';
+                }
+                setTimeout(() => {
+                    modal.style.pointerEvents = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            }
+        }
+        
+        // 白皮書鏈接點擊事件
+        document.querySelectorAll('a[href="#whitepaper"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                openWhitepaperModal();
+            });
+        });
+        
+        // 點擊模態框外部關閉
+        const modal = document.getElementById('whitepaperModal');
+        if (modal) {
+            modal.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeWhitepaperModal();
+                }
+            });
+        }
+        
+        // ESC鍵關閉模態框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeWhitepaperModal();
+                if (mobileMenu && mobileMenu.classList.contains('open')) {
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                    }
                     mobileMenu.classList.remove('open');
                     document.body.style.overflow = 'auto';
                 }
-            });
-            
-            // 添加載入動畫
-            window.addEventListener('load', () => {
-                document.body.classList.add('loaded');
-            });
-            
-            // 添加滾動進度條
-            const progressBar = document.createElement('div');
-            progressBar.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 0%;
-                height: 3px;
-                background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
-                z-index: 9999;
-                transition: width 0.3s ease;
-            `;
-            document.body.appendChild(progressBar);
-            
-            window.addEventListener('scroll', () => {
-                const scrollProgress = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-                progressBar.style.width = scrollProgress + '%';
-            });
-            
-            // 添加返回頂部按鈕
-            const backToTop = document.createElement('button');
-            backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
-            backToTop.style.cssText = `
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                background: linear-gradient(135deg, var(--primary), var(--secondary));
-                border: none;
-                color: white;
-                font-size: 18px;
-                cursor: pointer;
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 1000;
-            `;
-            
-            backToTop.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            document.body.appendChild(backToTop);
-            
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 500) {
-                    backToTop.style.opacity = '1';
-                    backToTop.style.visibility = 'visible';
-                } else {
-                    backToTop.style.opacity = '0';
-                    backToTop.style.visibility = 'hidden';
-                }
-            });
-            
-            // 添加粒子背景效果
-            function createParticles() {
-                const particleContainer = document.createElement('div');
-                particleContainer.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    pointer-events: none;
-                    z-index: -1;
-                `;
-                document.body.appendChild(particleContainer);
-                
-                for (let i = 0; i < 50; i++) {
-                    setTimeout(() => {
-                        const particle = document.createElement('div');
-                        particle.style.cssText = `
-                            position: absolute;
-                            width: 2px;
-                            height: 2px;
-                            background: rgba(0, 255, 157, 0.3);
-                            border-radius: 50%;
-                            left: ${Math.random() * 100}%;
-                            top: ${Math.random() * 100}%;
-                            animation: float ${3 + Math.random() * 4}s ease-in-out infinite;
-                        `;
-                        particleContainer.appendChild(particle);
-                        
-                        setTimeout(() => {
-                            particle.remove();
-                        }, 7000);
-                    }, i * 100);
-                }
             }
-            
-            // 定期創建粒子
-            createParticles();
-            setInterval(createParticles, 10000);
-            
-            // 添加浮動動畫樣式
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes float {
-                    0%, 100% { transform: translateY(0px) rotate(0deg); }
-                    33% { transform: translateY(-10px) rotate(120deg); }
-                    66% { transform: translateY(5px) rotate(240deg); }
-                }
-                
-                .loaded {
-                    opacity: 1;
-                }
-                
-                body:not(.loaded) {
-                    opacity: 0;
-                }
-                
-                .navbar {
-                    transition: transform 0.3s ease;
-                }
-            `;
-            document.head.appendChild(style);
         });
+        
+        // 初始化完成通知
+        console.log('🚀 AI Future Website Initialized Successfully!');
+        console.log('🌟 Welcome to the Future of Entertainment!');
     </script>
 </body>
-</html> 
-                            
+</html>
