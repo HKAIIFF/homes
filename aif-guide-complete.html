@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIF Guide | The Gold Reserve of AI Creative Economy</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --secondary: #8B00FF;
+            --accent: #00ff9d;
+            --gold: #FFD700;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        .logo-font {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            letter-spacing: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glow 3s ease-in-out infinite;
+        }
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(0,255,157,0.3)); }
+            50% { filter: drop-shadow(0 0 25px rgba(0,255,157,0.6)); }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10,10,10,0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,255,157,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 100px;
+            padding-bottom: 50px;
+            position: relative;
+            background: radial-gradient(circle at 20% 50%, rgba(0,102,255,0.15), transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(139,0,255,0.15), transparent 50%);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,102,255,0.5);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, var(--gold), #ffed4e);
+            color: #000;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,215,0,0.5);
+        }
+        .section { padding: 6rem 1rem; position: relative; }
+        .card {
+            background: rgba(26,32,44,0.7);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s;
+            backdrop-filter: blur(10px);
+            margin-bottom: 2rem;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--secondary));
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0,255,157,0.3);
+            box-shadow: 0 20px 40px rgba(0,255,157,0.2);
+        }
+        .stats-ticker {
+            background: rgba(0,0,0,0.8);
+            padding: 1.5rem;
+            border-top: 2px solid var(--accent);
+            border-bottom: 2px solid var(--accent);
+            overflow: hidden;
+        }
+        .ticker-content {
+            display: flex;
+            animation: ticker 30s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th { background: rgba(0,102,255,0.2); font-weight: 700; }
+        tr:hover { background: rgba(0,255,157,0.05); }
+        .lang-switch {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            color: white;
+        }
+        .lang-switch:hover {
+            background: rgba(0,255,157,0.2);
+            border-color: var(--accent);
+        }
+        .value-card {
+            background: linear-gradient(135deg, rgba(0,102,255,0.1), rgba(139,0,255,0.1));
+            border: 2px solid rgba(0,255,157,0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .scenario-card {
+            background: rgba(0,0,0,0.6);
+            border: 1px solid rgba(0,255,157,0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border-left: 4px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1rem;
+        }
+        .role-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            border: 2px solid rgba(0,255,157,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        .role-card:hover {
+            transform: scale(1.03);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(0,255,157,0.3);
+        }
+        .dashboard {
+            background: rgba(0,0,0,0.9);
+            border: 2px solid var(--gold);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+        .stat-box {
+            background: rgba(0,102,255,0.1);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+        }
+        .footer {
+            background: rgba(0,0,0,0.95);
+            border-top: 2px solid var(--accent);
+            padding: 3rem 1rem;
+            margin-top: 4rem;
+        }
+        .floating-cta {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 999;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .grid-cols-9 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .section { padding: 3rem 1rem; }
+            .hero { min-height: 80vh; padding-top: 100px; }
+            .text-7xl { font-size: 3rem; }
+            .text-6xl { font-size: 2.5rem; }
+            .text-5xl { font-size: 2rem; }
+            table { font-size: 0.875rem; }
+            th, td { padding: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <div class="logo-font text-3xl">AIF GUIDE</div>
+            <div class="flex items-center space-x-4 md:space-x-6">
+                <a href="#home" class="hover:text-cyan-400 transition hidden md:inline text-sm md:text-base">Home</a>
+                <a href="#value" class="hover:text-cyan-400 transition hidden md:inline text-sm md:text-base">Value</a>
+                <a href="#ecosystem" class="hover:text-cyan-400 transition hidden md:inline text-sm md:text-base">Ecosystem</a>
+                <a href="#join" class="hover:text-cyan-400 transition hidden md:inline text-sm md:text-base">Join</a>
+                <button class="lang-switch text-sm md:text-base" onclick="toggleLanguage()">
+                    <span id="langText">EN / 繁中</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="max-w-6xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-7xl font-black mb-6 leading-tight" data-en="AI is Creating a Brand New Trillion-Dollar Industry" data-zh="AI正在創造一個全新的萬億級產業">
+                AI is Creating a Brand New Trillion-Dollar Industry
+            </h1>
+            <h2 class="text-2xl md:text-4xl font-bold mb-8 text-gray-300" data-en="We are Building the Infrastructure for This Industry" data-zh="我們在構建這個產業的基礎設施">
+                We are Building the Infrastructure for This Industry
+            </h2>
+            <p class="text-xl md:text-3xl mb-12 gradient-text font-bold" data-en="AIF Token is Your Only Credential to Hold This Future" data-zh="AIF代幣,是您持有這個未來的唯一憑證">
+                AIF Token is Your Only Credential to Hold This Future
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+                <a href="http://token.aif.market" target="_blank" class="btn-gold text-xl">
+                    <span data-en="Get AIF Now" data-zh="立即獲取AIF">Get AIF Now</span>
+                </a>
+                <a href="#ecosystem" class="btn-primary text-xl">
+                    <span data-en="Explore Ecosystem" data-zh="探索生態">Explore Ecosystem</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Ticker -->
+    <div class="stats-ticker">
+        <div class="ticker-content">
+            <div class="flex space-x-8 md:space-x-12 text-sm md:text-lg font-bold">
+                <div>💰 <span data-en="2030 Market: $370B" data-zh="2030市場: 3700億美元">2030 Market: $370B</span></div>
+                <div>🚀 <span data-en="Growth: 54%/year" data-zh="增長: 54%/年">Growth: 54%/year</span></div>
+                <div>🔥 <span data-en="5Y Burn: 1.05B AIF (10.5%)" data-zh="5年銷毀: 10.5億AIF (10.5%)">5Y Burn: 1.05B AIF (10.5%)</span></div>
+                <div>💎 <span data-en="Staking: 8-25% APY" data-zh="質押: 8-25%年化">Staking: 8-25% APY</span></div>
+                <div>🌏 <span data-en="Asia-Pacific: $129B" data-zh="亞太: 1290億美元">Asia-Pacific: $129B</span></div>
+            </div>
+            <div class="flex space-x-8 md:space-x-12 text-sm md:text-lg font-bold">
+                <div>💰 <span data-en="2030 Market: $370B" data-zh="2030市場: 3700億美元">2030 Market: $370B</span></div>
+                <div>🚀 <span data-en="Growth: 54%/year" data-zh="增長: 54%/年">Growth: 54%/year</span></div>
+                <div>🔥 <span data-en="5Y Burn: 1.05B AIF (10.5%)" data-zh="5年銷毀: 10.5億AIF (10.5%)">5Y Burn: 1.05B AIF (10.5%)</span></div>
+                <div>💎 <span data-en="Staking: 8-25% APY" data-zh="質押: 8-25%年化">Staking: 8-25% APY</span></div>
+                <div>🌏 <span data-en="Asia-Pacific: $129B" data-zh="亞太: 1290億美元">Asia-Pacific: $129B</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Part 1: The Future is Now -->
+    <section class="section" style="background: linear-gradient(to bottom, #000, #1a1a1a);">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-6xl font-black text-center mb-4 gradient-text" data-en="The Future is Now" data-zh="未來已來">
+                The Future is Now
+            </h2>
+            <p class="text-lg md:text-2xl text-center mb-12 text-gray-300" data-en="The 'iPhone Moment' of AI Creativity" data-zh="AI創意的「iPhone時刻」">
+                The 'iPhone Moment' of AI Creativity
+            </p>
+
+            <div class="card relative">
+                <h3 class="text-2xl md:text-4xl font-bold mb-6 text-center gradient-text" data-en="Traditional vs AI-Native Production" data-zh="傳統 vs AI原生製作">
+                    Traditional vs AI-Native Production
+                </h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="text-sm md:text-base">
+                        <thead>
+                            <tr>
+                                <th data-en="Dimension" data-zh="維度">Dimension</th>
+                                <th data-en="Traditional" data-zh="傳統">Traditional</th>
+                                <th>→</th>
+                                <th data-en="AI-Native" data-zh="AI原生">AI-Native</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-bold" data-en="Time" data-zh="週期">Time</td>
+                                <td>2-3 <span data-en="years" data-zh="年">years</span></td>
+                                <td>→</td>
+                                <td class="text-cyan-400 font-bold">2-3 <span data-en="months (10x)" data-zh="個月 (10倍)">months (10x)</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold" data-en="Cost" data-zh="成本">Cost</td>
+                                <td>$50M+</td>
+                                <td>→</td>
+                                <td class="text-cyan-400 font-bold">$50K (1000x)</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold" data-en="Team" data-zh="團隊">Team</td>
+                                <td>1000 <span data-en="people" data-zh="人">people</span></td>
+                                <td>→</td>
+                                <td class="text-cyan-400 font-bold">1 <span data-en="person" data-zh="人">person</span></td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold" data-en="Personalization" data-zh="個性化">Personalization</td>
+                                <td>0</td>
+                                <td>→</td>
+                                <td class="text-cyan-400 font-bold" data-en="Infinite" data-zh="無限">Infinite</td>
+                            </tr>
+                            <tr>
+                                <td class="font-bold" data-en="Interactivity" data-zh="互動性">Interactivity</td>
+                                <td data-en="Passive" data-zh="被動">Passive</td>
+                                <td>→</td>
+                                <td class="text-cyan-400 font-bold" data-en="Immersive" data-zh="沉浸式">Immersive</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <div class="stat-box">
+                        <div class="text-3xl md:text-5xl font-bold text-cyan-400 mb-2">$30B</div>
+                        <div class="text-sm md:text-base" data-en="2024: AI Content Market" data-zh="2024: AI內容市場">2024: AI Content Market</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="text-3xl md:text-5xl font-bold text-purple-400 mb-2">$150B</div>
+                        <div class="text-sm md:text-base" data-en="2027: Projected" data-zh="2027: 預計">2027: Projected</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="text-3xl md:text-5xl font-bold gradient-text mb-2">$370B</div>
+                        <div class="text-sm md:text-base" data-en="2030: Target (54% CAGR)" data-zh="2030: 目標(54%增長)">2030: Target (54% CAGR)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card relative">
+                <h3 class="text-2xl md:text-4xl font-bold mb-6 text-center" data-en="Traditional Industry's 'Five Black Holes'" data-zh="傳統產業的「五大黑洞」">
+                    Traditional Industry's 'Five Black Holes'
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <div class="scenario-card">
+                        <div class="text-3xl md:text-4xl mb-3">❌</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-red-400" data-en="Funding Black Hole" data-zh="融資黑洞">Funding Black Hole</h4>
+                        <p class="text-gray-300 text-xs md:text-sm" data-en="Connections + gambling" data-zh="靠人脈+賭博">Connections + gambling</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="text-3xl md:text-4xl mb-3">❌</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-red-400" data-en="Copyright Black Hole" data-zh="版權黑洞">Copyright Black Hole</h4>
+                        <p class="text-gray-300 text-xs md:text-sm" data-en="Chaotic contracts" data-zh="合約混亂">Chaotic contracts</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="text-3xl md:text-4xl mb-3">❌</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-red-400" data-en="Revenue Black Hole" data-zh="分賬黑洞">Revenue Black Hole</h4>
+                        <p class="text-gray-300 text-xs md:text-sm" data-en="1-2 year payback" data-zh="1-2年回款">1-2 year payback</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="text-3xl md:text-4xl mb-3">❌</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-red-400" data-en="Distribution Black Hole" data-zh="發行黑洞">Distribution Black Hole</h4>
+                        <p class="text-gray-300 text-xs md:text-sm" data-en="Regional barriers" data-zh="地域限制">Regional barriers</p>
+                    </div>
+                    <div class="scenario-card">
+                        <div class="text-3xl md:text-4xl mb-3">❌</div>
+                        <h4 class="text-lg md:text-xl font-bold mb-2 text-red-400" data-en="Power Black Hole" data-zh="權力黑洞">Power Black Hole</h4>
+                        <p class="text-gray-300 text-xs md:text-sm" data-en="No governance" data-zh="無治理權">No governance</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box mt-6">
+                    <h4 class="text-lg md:text-2xl font-bold mb-4 text-yellow-400" data-en="AI-Native Era Needs:" data-zh="AI原生時代需要:">AI-Native Era Needs:</h4>
+                    <ul class="space-y-2 md:space-y-3 text-sm md:text-base">
+                        <li>✅ <span data-en="Global transparent funding infrastructure" data-zh="全球透明融資基礎設施">Global transparent funding infrastructure</span></li>
+                        <li>✅ <span data-en="On-chain immutable copyright" data-zh="鏈上不可篡改版權">On-chain immutable copyright</span></li>
+                        <li>✅ <span data-en="Real-time smart settlement" data-zh="實時智能結算">Real-time smart settlement</span></li>
+                        <li>✅ <span data-en="Cross-border frictionless distribution" data-zh="跨境無摩擦發行">Cross-border frictionless distribution</span></li>
+                        <li>✅ <span data-en="Creator-led governance" data-zh="創作者主導治理">Creator-led governance</span></li>
+                    </ul>
+                    <p class="text-lg md:text-xl font-bold mt-6 text-center text-yellow-400" data-en="This is Why HKAIIFF Ecosystem Exists" data-zh="這就是HKAIIFF生態存在的理由">
+                        This is Why HKAIIFF Ecosystem Exists
+                    </p>
+                </div>
+            </div>
+
+            <div class="card relative">
+                <h3 class="text-2xl md:text-4xl font-bold mb-6 text-center gradient-text" data-en="Time Window: Golden 36 Months" data-zh="時間窗口:黃金36個月">
+                    Time Window: Golden 36 Months
+                </h3>
+                
+                <div class="space-y-4 md:space-y-6">
+                    <div class="scenario-card" style="border-color: #00ff9d;">
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-green-400">⏰ 2024-2026: <span data-en="Technology Maturity" data-zh="技術成熟期">Technology Maturity</span></h4>
+                        <p class="font-bold text-yellow-400 mb-2 text-sm md:text-base">← <span data-en="We Are Here!" data-zh="我們在這裡!">We Are Here!</span></p>
+                        <ul class="space-y-2 text-xs md:text-sm">
+                            <li>→ <span data-en="First movers capture user mindshare" data-zh="先發者佔領用戶心智">First movers capture user mindshare</span></li>
+                            <li>→ <span data-en="Early data becomes core asset" data-zh="早期數據成為核心資產">Early data becomes core asset</span></li>
+                            <li>→ <span data-en="Standard setters gain Matthew effect" data-zh="標準制定者獲得馬太效應">Standard setters gain Matthew effect</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-card" style="border-color: orange;">
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-orange-400">⚠️ 2026-2028: <span data-en="Market Expansion" data-zh="市場擴張期">Market Expansion</span></h4>
+                        <ul class="space-y-2 text-xs md:text-sm">
+                            <li>→ <span data-en="Platform ecosystem basically established" data-zh="平台生態基本確立">Platform ecosystem basically established</span></li>
+                            <li>→ <span data-en="Late entrants face 10x threshold" data-zh="後進入者面臨10倍門檻">Late entrants face 10x threshold</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="scenario-card" style="border-color: red;">
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-red-400">🚫 2028-2030: <span data-en="Pattern Solidification" data-zh="格局固化期">Pattern Solidification</span></h4>
+                        <ul class="space-y-2 text-xs md:text-sm">
+                            <li>→ <span data-en="User habits highly solidified" data-zh="用戶習慣高度固化">User habits highly solidified</span></li>
+                            <li>→ <span data-en="New entrants have almost no chance" data-zh="新進入者幾乎沒有機會">New entrants have almost no chance</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box mt-6">
+                    <p class="text-lg md:text-2xl font-bold text-center">
+                        <span data-en="Conclusion: Join Now or Forever Become a 'Digital Refugee' in the AI Era" data-zh="結論: 現在不加入,將永遠成為AI時代的「數字難民」">
+                            Conclusion: Join Now or Forever Become a 'Digital Refugee' in the AI Era
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 2: AIF Ecosystem -->
+    <section id="ecosystem" class="section" style="background: #000;">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-6xl font-black text-center mb-4 gradient-text" data-en="AIF Ecosystem" data-zh="AIF生態">
+                AIF Ecosystem
+            </h2>
+            <p class="text-lg md:text-2xl text-center mb-12 text-gray-300" data-en="World's First '9+1' AI-Native Film Ecosystem" data-zh="全球首個「9+1」AI原生電影生態">
+                World's First '9+1' AI-Native Film Ecosystem
+            </p>
+
+            <div class="card relative mb-8">
+                <div class="text-center mb-12">
+                    <div class="inline-block p-6 md:p-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 mb-8">
+                        <div class="text-3xl md:text-5xl font-black text-white">🌟 AIF TOKEN</div>
+                        <div class="text-sm md:text-lg mt-2" data-en="The 'Bloodstream' of AI Economy" data-zh="AI經濟體的「血液」">The 'Bloodstream' of AI Economy</div>
+                    </div>
+                </div>
+
+                <div class="grid-cols-9">
+                    <div class="card relative border-2 border-blue-500">
+                        <div class="icon-box">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-blue-400">🎓 HKAIFA</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="AI Creation Academy" data-zh="AI創作黃埔軍校">AI Creation Academy</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Learning + Certification" data-zh="學習+認證">Learning + Certification</p>
+                    </div>
+
+                    <div class="card relative border-2 border-purple-500">
+                        <div class="icon-box">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-purple-400">💎 BeingOS</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Digital Soul Factory" data-zh="數字靈魂工廠">Digital Soul Factory</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Create AI Life Forms" data-zh="創造AI生命體">Create AI Life Forms</p>
+                    </div>
+
+                    <div class="card relative border-2 border-green-500">
+                        <div class="icon-box">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-green-400">📈 AIF.Market</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Creative NASDAQ" data-zh="創意納斯達克">Creative NASDAQ</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="FilmToken Funding" data-zh="FilmToken融資">FilmToken Funding</p>
+                    </div>
+
+                    <div class="card relative border-2 border-yellow-500">
+                        <div class="icon-box">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-yellow-400">💱 AIF.Exchange</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Global Liquidity Hub" data-zh="全球流動性樞紐">Global Liquidity Hub</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Token Trading Center" data-zh="代幣交易中心">Token Trading Center</p>
+                    </div>
+
+                    <div class="card relative border-2 border-red-500">
+                        <div class="icon-box">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-red-400">🎬 HKAIIFF</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Global AI Oscars" data-zh="全球AI奧斯卡">Global AI Oscars</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="$3M Prize Pool" data-zh="300萬美元獎池">$3M Prize Pool</p>
+                    </div>
+
+                    <div class="card relative border-2 border-cyan-500">
+                        <div class="icon-box">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-cyan-400">🌍 404.World</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Immersive Universe" data-zh="沉浸式平行宇宙">Immersive Universe</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Interactive Films" data-zh="互動電影體驗">Interactive Films</p>
+                    </div>
+
+                    <div class="card relative border-2 border-pink-500">
+                        <div class="icon-box">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-pink-400">⭐ StarOS</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Digital Star Agency" data-zh="數字人經紀平台">Digital Star Agency</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="AI Celebrity Factory" data-zh="AI明星造星工廠">AI Celebrity Factory</p>
+                    </div>
+
+                    <div class="card relative border-2 border-indigo-500">
+                        <div class="icon-box">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-indigo-400">💳 AIFCARD</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Value Wallet" data-zh="價值存儲錢包">Value Wallet</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Payment + Assets" data-zh="支付+資產管理">Payment + Assets</p>
+                    </div>
+
+                    <div class="card relative border-2 border-yellow-400">
+                        <div class="icon-box">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4 class="text-xl md:text-2xl font-bold mb-3 text-center text-yellow-400">🏛️ AIF.Center</h4>
+                        <p class="text-center font-bold mb-2 text-sm md:text-base" data-en="Governance Hub" data-zh="生態治理樞紐">Governance Hub</p>
+                        <p class="text-gray-400 text-center text-xs md:text-sm" data-en="Distribution + DAO" data-zh="全球發行+DAO">Distribution + DAO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 3: Four Core Values -->
+    <section id="value" class="section" style="background: linear-gradient(to bottom, #1a1a1a, #000);">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-6xl font-black text-center mb-4 gradient-text" data-en="Four Core Values of AIF" data-zh="AIF的四大核心價值">
+                Four Core Values of AIF
+            </h2>
+            <p class="text-lg md:text-2xl text-center mb-12 text-gray-300" data-en="Financial Attributes of the Gold Reserve" data-zh="黃金儲備的金融屬性">
+                Financial Attributes of the Gold Reserve
+            </p>
+
+            <!-- Value 1 -->
+            <div class="value-card">
+                <div class="flex items-center mb-6">
+                    <div class="text-4xl md:text-6xl mr-4">💳</div>
+                    <h3 class="text-2xl md:text-4xl font-bold gradient-text" data-en="Value 1: AIF is 'Creative Credit' Collateral" data-zh="價值1: AIF是「創意信用」的抵押品">
+                        Value 1: AIF is 'Creative Credit' Collateral
+                    </h3>
+                </div>
+
+                <div class="scenario-card">
+                    <p class="text-base md:text-lg mb-4" data-en="An HKAIFA-certified AI director with 150% ROI can:" data-zh="一個HKAIFA認證的AI導演,回報率150%:">
+                        An HKAIFA-certified AI director with 150% ROI can:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg border-2 border-red-500">
+                            <div class="font-bold text-red-400 mb-2 text-sm md:text-base">❌ <span data-en="Traditional" data-zh="傳統">Traditional</span></div>
+                            <p class="text-xs md:text-sm" data-en="Find investors → 3 months → Get 30% equity → Lose control" data-zh="找投資人→3個月談判→拿30%股權→喪失控制權">Find investors → 3 months → Get 30% equity → Lose control</p>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg border-2 border-green-500">
+                            <div class="font-bold text-green-400 mb-2 text-sm md:text-base">✅ <span data-en="AIF Ecosystem" data-zh="AIF生態">AIF Ecosystem</span></div>
+                            <p class="text-xs md:text-sm" data-en="Stake 50K AIF → Get 30K AIF credit → Use instantly → Keep 100% control" data-zh="質押5萬AIF→獲得3萬AIF信用額度→即時使用→保持100%控制權">Stake 50K AIF → Get 30K AIF credit → Use instantly → Keep 100% control</p>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box mt-6">
+                        <p class="text-base md:text-xl font-bold text-center">
+                            <span data-en="AIF transforms creators' 'talent' and 'reputation' into instantly cashable 'credit assets'" data-zh="AIF將創作者的「才華」和「聲譽」轉化為可即時變現的「信用資產」">
+                                AIF transforms creators' 'talent' and 'reputation' into instantly cashable 'credit assets'
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 2 -->
+            <div class="value-card">
+                <div class="flex items-center mb-6">
+                    <div class="text-4xl md:text-6xl mr-4">🌊</div>
+                    <h3 class="text-2xl md:text-4xl font-bold gradient-text" data-en="Value 2: AIF is 'Creative Assets' Liquidity Layer" data-zh="價值2: AIF是「創意資產」的流動性層">
+                        Value 2: AIF is 'Creative Assets' Liquidity Layer
+                    </h3>
+                </div>
+
+                <div class="scenario-card">
+                    <p class="text-base md:text-lg mb-4" data-en="All creative project financing must go through AIF as the 'only entry point'" data-zh="所有創意項目融資必須通過AIF作為「唯一入口」">
+                        All creative project financing must go through AIF as the 'only entry point'
+                    </p>
+
+                    <div class="bg-gray-800 p-4 md:p-6 rounded-lg mb-6">
+                        <h5 class="text-lg md:text-xl font-bold mb-4 text-cyan-400" data-en="Global Investment Process:" data-zh="全球投資流程:">Global Investment Process:</h5>
+                        <div class="space-y-2 md:space-y-3 text-xs md:text-sm">
+                            <div>1. <span data-en="Japanese investor: Buy AIF with Yen" data-zh="日本投資者: 用日元購買AIF">Japanese investor: Buy AIF with Yen</span></div>
+                            <div>2. <span data-en="US investor: Buy AIF with USD" data-zh="美國投資者: 用美元購買AIF">US investor: Buy AIF with USD</span></div>
+                            <div>3. <span data-en="European investor: Buy AIF with Euro" data-zh="歐洲投資者: 用歐元購買AIF">European investor: Buy AIF with Euro</span></div>
+                            <div class="text-yellow-400 font-bold">4. <span data-en="All use AIF to subscribe to FilmToken" data-zh="所有人用AIF認購FilmToken">All use AIF to subscribe to FilmToken</span></div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="text-base md:text-xl font-bold text-center">
+                            <span data-en="Creates continuous, massive, rigid AIF buying demand → AIF becomes 'reserve currency' of AI creative economy" data-zh="創造持續的、海量的、剛性的AIF購買需求 → AIF成為AI創意經濟的「儲備貨幣」">
+                                Creates continuous, massive, rigid AIF buying demand → AIF becomes 'reserve currency' of AI creative economy
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 3 -->
+            <div class="value-card">
+                <div class="flex items-center mb-6">
+                    <div class="text-4xl md:text-6xl mr-4">💰</div>
+                    <h3 class="text-2xl md:text-4xl font-bold gradient-text" data-en="Value 3: AIF is 'Future Revenue' Settler" data-zh="價值3: AIF是「未來收益」的結算器">
+                        Value 3: AIF is 'Future Revenue' Settler
+                    </h3>
+                </div>
+
+                <div class="scenario-card">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+                        <div class="bg-red-900 bg-opacity-30 p-4 rounded-lg border-2 border-red-500">
+                            <div class="font-bold text-red-400 mb-3 text-sm md:text-base">❌ <span data-en="Traditional Revenue Share" data-zh="傳統分賬">Traditional Revenue Share</span></div>
+                            <ul class="space-y-2 text-xs md:text-sm">
+                                <li>❌ <span data-en="Each fiat settled separately" data-zh="各地法幣分別結算">Each fiat settled separately</span></li>
+                                <li>❌ <span data-en="Exchange loss + fees" data-zh="匯率損失+手續費">Exchange loss + fees</span></li>
+                                <li>❌ <span data-en="1-2 years to receive" data-zh="1-2年才收到">1-2 years to receive</span></li>
+                                <li>❌ <span data-en="Inflation erodes value" data-zh="通脹侵蝕價值">Inflation erodes value</span></li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-30 p-4 rounded-lg border-2 border-green-500">
+                            <div class="font-bold text-green-400 mb-3 text-sm md:text-base">✅ <span data-en="AIF Smart Revenue Share" data-zh="AIF智能分賬">AIF Smart Revenue Share</span></div>
+                            <ul class="space-y-2 text-xs md:text-sm">
+                                <li>✅ <span data-en="All revenue → AIF instantly" data-zh="所有收入→即時兌換AIF">All revenue → AIF instantly</span></li>
+                                <li>✅ <span data-en="Smart contracts distribute real-time" data-zh="智能合約實時分配">Smart contracts distribute real-time</span></li>
+                                <li>✅ <span data-en="Receive deflationary AIF assets" data-zh="收到通縮增值AIF資產">Receive deflationary AIF assets</span></li>
+                                <li>✅ <span data-en="Trade or stake anytime" data-zh="隨時交易或繼續質押">Trade or stake anytime</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="text-base md:text-xl font-bold text-center">
+                            <span data-en="Investors receive deflationary, appreciating 'core assets' instead of depreciating fiat" data-zh="投資者收到通縮增值的「核心資產」,而非貶值法幣">
+                                Investors receive deflationary, appreciating 'core assets' instead of depreciating fiat
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value 4 -->
+            <div class="value-card">
+                <div class="flex items-center mb-6">
+                    <div class="text-4xl md:text-6xl mr-4">🔥</div>
+                    <h3 class="text-2xl md:text-4xl font-bold gradient-text" data-en="Value 4: AIF is 'Ecosystem Dividends' Distributor" data-zh="價值4: AIF是「生態紅利」的分配器">
+                        Value 4: AIF is 'Ecosystem Dividends' Distributor
+                    </h3>
+                </div>
+
+                <div class="scenario-card">
+                    <h4 class="text-xl md:text-2xl font-bold mb-4 text-yellow-400" data-en="Dual Deflationary Mechanism:" data-zh="雙重通縮機制:">Dual Deflationary Mechanism:</h4>
+                    
+                    <div class="bg-black p-4 md:p-6 rounded-lg border-2 border-yellow-400 mb-6">
+                        <div class="text-center mb-6">
+                            <div class="text-xl md:text-3xl font-bold mb-4" data-en="All Platform Revenue (Settled in AIF)" data-zh="所有平台收入 (以AIF結算)">All Platform Revenue (Settled in AIF)</div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
+                            <div class="bg-red-900 bg-opacity-30 p-4 md:p-6 rounded-lg border-2 border-red-500">
+                                <div class="text-3xl md:text-4xl mb-3 text-center">🔥</div>
+                                <div class="text-lg md:text-2xl font-bold mb-4 text-center">50% → <span data-en="Permanent Burn" data-zh="永久銷毀">Permanent Burn</span></div>
+                                <ul class="space-y-2 text-xs md:text-sm">
+                                    <li>├─ <span data-en="Platform fees" data-zh="平台手續費">Platform fees</span></li>
+                                    <li>├─ <span data-en="Exchange fees" data-zh="Exchange交易費">Exchange fees</span></li>
+                                    <li>├─ <span data-en="Premium subscriptions" data-zh="Premium訂閱">Premium subscriptions</span></li>
+                                    <li>└─ <span data-en="API usage & Ads" data-zh="API使用費&廣告">API usage & Ads</span></li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-red-500 bg-opacity-20 rounded">
+                                    <div class="font-bold text-center text-xs md:text-sm" data-en="5-Year Total: 1.05B AIF (10.5%)" data-zh="5年累計: 10.5億AIF (10.5%)">
+                                        5-Year Total: 1.05B AIF (10.5%)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-green-900 bg-opacity-30 p-4 md:p-6 rounded-lg border-2 border-green-500">
+                                <div class="text-3xl md:text-4xl mb-3 text-center">💎</div>
+                                <div class="text-lg md:text-2xl font-bold mb-4 text-center">30% → <span data-en="Staking Dividends" data-zh="質押分紅">Staking Dividends</span></div>
+                                <p class="mb-4 text-xs md:text-sm" data-en="Distributed to all AIF stakers, quarterly settlement" data-zh="分配給所有質押AIF持有者,季度結算">
+                                    Distributed to all AIF stakers, quarterly settlement
+                                </p>
+                                
+                                <div class="mt-4 p-3 bg-blue-500 bg-opacity-20 rounded">
+                                    <div class="font-bold text-center mb-2 text-xs md:text-sm" data-en="Staking Yield Ladder:" data-zh="質押收益階梯:">Staking Yield Ladder:</div>
+                                    <div class="space-y-1 text-xs">
+                                        <div>3m: 8%+2% = <span class="text-yellow-400 font-bold">10% APY</span></div>
+                                        <div>6m: 10%+3% = <span class="text-yellow-400 font-bold">13% APY</span></div>
+                                        <div>12m: 12%+5% = <span class="text-yellow-400 font-bold">17% APY</span></div>
+                                        <div>24m: 15%+10% = <span class="text-yellow-400 font-bold">25% APY</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 bg-purple-900 bg-opacity-30 rounded-lg border-2 border-purple-500">
+                            <div class="text-center">
+                                <div class="text-base md:text-xl font-bold mb-2">20% → <span data-en="Ecosystem Development" data-zh="生態發展">Ecosystem Development</span> 🌱</div>
+                                <div class="text-xs md:text-sm" data-en="Technology R&D and market expansion" data-zh="技術研發和市場拓展">Technology R&D and market expansion</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <p class="text-lg md:text-2xl font-bold text-center mb-4">
+                            <span data-en="Core Value:" data-zh="核心價值:">Core Value:</span>
+                        </p>
+                        <p class="text-base md:text-xl text-center">
+                            <span data-en="Holding and staking AIF = Becoming a 'super shareholder' of the entire AI creative ecosystem" data-zh="持有並質押AIF = 成為整個AI創意生態的「超級股東」">
+                                Holding and staking AIF = Becoming a 'super shareholder' of the entire AI creative ecosystem
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Part 4: Join AIF -->
+    <section id="join" class="section" style="background: linear-gradient(to bottom, #000, #1a1a1a);">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-6xl font-black text-center mb-4 gradient-text" data-en="Choose Your Role" data-zh="選擇你的角色">
+                Choose Your Role
+            </h2>
+            <p class="text-lg md:text-2xl text-center mb-12 text-gray-300" data-en="Three Roles, Three Futures" data-zh="三種角色,三種未來">
+                Three Roles, Three Futures
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+                <!-- Role A -->
+                <div class="role-card">
+                    <div class="icon-box">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">A. <span data-en="Investor" data-zh="投資者">Investor</span></h3>
+                    
+                    <div class="space-y-4 text-left">
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">💎</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Stake AIF" data-zh="質押AIF">Stake AIF</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="8-25% APY passive income" data-zh="8-25%年化被動收入">8-25% APY passive income</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">📈</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Invest FilmToken" data-zh="投資FilmToken">Invest FilmToken</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Early investment, 1000x potential" data-zh="早期投資,千倍潛力">Early investment, 1000x potential</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">⚖️</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Governance" data-zh="參與治理">Governance</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Voting rights, decide future" data-zh="投票權,決定未來">Voting rights, decide future</p>
+                        </div>
+                    </div>
+
+                    <a href="http://token.aif.market" target="_blank" class="btn-primary w-full mt-6 text-center block text-sm md:text-base">
+                        <span data-en="Start Investing" data-zh="開始投資">Start Investing</span>
+                    </a>
+                </div>
+
+                <!-- Role B -->
+                <div class="role-card">
+                    <div class="icon-box" style="background: linear-gradient(135deg, #FFD700, #FFA500);">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">B. <span data-en="Creator" data-zh="創作者">Creator</span></h3>
+                    
+                    <div class="space-y-4 text-left">
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">🎓</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Learn" data-zh="學習">Learn</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="HKAIFA free courses" data-zh="HKAIFA免費課程">HKAIFA free courses</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">💰</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Get Funded" data-zh="融資">Get Funded</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Raise from global AIF holders" data-zh="向全球AIF持有者融資">Raise from global AIF holders</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">🎬</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Create" data-zh="創作">Create</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Build on BeingOS & 404.world" data-zh="在BeingOS和404.world創作">Build on BeingOS & 404.world</p>
+                        </div>
+                    </div>
+
+                    <a href="http://token.aif.market" target="_blank" class="btn-gold w-full mt-6 text-center block text-sm md:text-base">
+                        <span data-en="Join HKAIFA" data-zh="加入HKAIFA">Join HKAIFA</span>
+                    </a>
+                </div>
+
+                <!-- Role C -->
+                <div class="role-card">
+                    <div class="icon-box" style="background: linear-gradient(135deg, #00FFFF, #0080FF);">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6 gradient-text">C. <span data-en="User" data-zh="體驗者">User</span></h3>
+                    
+                    <div class="space-y-4 text-left">
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">🌍</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Experience" data-zh="體驗">Experience</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Interactive films on 404.world" data-zh="在404.world體驗互動電影">Interactive films on 404.world</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">🤖</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Adopt AI Being" data-zh="領養AI Being">Adopt AI Being</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Your AI companion on BeingOS" data-zh="在BeingOS領養AI伴侶">Your AI companion on BeingOS</p>
+                        </div>
+
+                        <div class="bg-gray-800 p-3 md:p-4 rounded-lg">
+                            <div class="flex items-center mb-2">
+                                <div class="text-xl md:text-2xl mr-3">💰</div>
+                                <div class="font-bold text-sm md:text-base" data-en="Earn" data-zh="賺取">Earn</div>
+                            </div>
+                            <p class="text-xs md:text-sm text-gray-400" data-en="Watch-to-Earn AIF tokens" data-zh="Watch-to-Earn賺取AIF">Watch-to-Earn AIF tokens</p>
+                        </div>
+                    </div>
+
+                    <a href="http://token.aif.market" target="_blank" class="btn-primary w-full mt-6 text-center block text-sm md:text-base">
+                        <span data-en="Enter 404.World" data-zh="進入404.World">Enter 404.World</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- New User Benefits -->
+            <div class="card relative">
+                <h3 class="text-2xl md:text-4xl font-bold text-center mb-8 gradient-text" data-en="New User Benefits (Limited Time)" data-zh="新用戶福利 (限時)">
+                    New User Benefits (Limited Time)
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                    <div>
+                        <div class="text-center mb-4">
+                            <div class="text-4xl md:text-5xl mb-3">⚡</div>
+                            <h4 class="text-xl md:text-2xl font-bold text-yellow-400 mb-4" data-en="Early Bird" data-zh="早鳥特權">Early Bird</h4>
+                        </div>
+                        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm">
+                            <li>✓ <span data-en="500 AIF bonus ($40)" data-zh="註冊送 500 AIF (價值$40)">500 AIF bonus ($40)</span></li>
+                            <li>✓ <span data-en="Genesis NFT Badge (10,000 only)" data-zh="Genesis NFT徽章(僅10000枚)">Genesis NFT Badge (10,000 only)</span></li>
+                            <li>✓ <span data-en="HKAIIFF priority registration" data-zh="HKAIIFF優先報名">HKAIIFF priority registration</span></li>
+                            <li>✓ <span data-en="Extra 20% token rewards" data-zh="額外20%代幣獎勵">Extra 20% token rewards</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="text-center mb-4">
+                            <div class="text-4xl md:text-5xl mb-3">📚</div>
+                            <h4 class="text-xl md:text-2xl font-bold text-blue-400 mb-4" data-en="Learning" data-zh="學習禮包">Learning</h4>
+                        </div>
+                        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm">
+                            <li>✓ <span data-en="HKAIFA courses free forever" data-zh="HKAIFA課程永久免費">HKAIFA courses free forever</span></li>
+                            <li>✓ <span data-en="BeingOS 30-day trial" data-zh="BeingOS 30天試用">BeingOS 30-day trial</span></li>
+                            <li>✓ <span data-en="Complete AI film tutorial" data-zh="完整AI電影教程">Complete AI film tutorial</span></li>
+                            <li>✓ <span data-en="1-on-1 guidance (first 1000)" data-zh="一對一指導(前1000名)">1-on-1 guidance (first 1000)</span></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="text-center mb-4">
+                            <div class="text-4xl md:text-5xl mb-3">💎</div>
+                            <h4 class="text-xl md:text-2xl font-bold text-purple-400 mb-4" data-en="Investment" data-zh="投資優勢">Investment</h4>
+                        </div>
+                        <ul class="space-y-2 md:space-y-3 text-xs md:text-sm">
+                            <li>✓ <span data-en="IDO price: $0.08" data-zh="IDO價格: $0.08">IDO price: $0.08</span></li>
+                            <li>✓ <span data-en="Expected listing: $0.15-$0.30" data-zh="預計上線: $0.15-$0.30">Expected listing: $0.15-$0.30</span></li>
+                            <li>✓ <span data-en="2030 conservative: $0.17-$0.55 (2-7x)" data-zh="2030保守: $0.17-$0.55 (2-7倍)">2030 conservative: $0.17-$0.55 (2-7x)</span></li>
+                            <li>✓ <span data-en="Aggressive: $0.83-$2.21 (10-27x)" data-zh="激進: $0.83-$2.21 (10-27倍)">Aggressive: $0.83-$2.21 (10-27x)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8 md:mt-12">
+                    <a href="http://token.aif.market" target="_blank" class="btn-gold text-xl md:text-2xl px-8 md:px-12 py-3 md:py-4 inline-block">
+                        <span data-en="Get AIFCARD Wallet Now" data-zh="立即獲取AIFCARD錢包">Get AIFCARD Wallet Now</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Data -->
+    <section class="section" style="background: #000;">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-6xl font-black text-center mb-12 gradient-text" data-en="Ecosystem Real-time Data" data-zh="生態實時數據">
+                Ecosystem Real-time Data
+            </h2>
+
+            <div class="dashboard">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8">
+                    <div class="stat-box">
+                        <div class="text-xs md:text-sm text-gray-400 mb-2" data-en="Ecosystem Value" data-zh="生態估值">Ecosystem Value</div>
+                        <div class="text-2xl md:text-4xl font-bold gradient-text">$5.5-11B</div>
+                        <div class="text-xs text-gray-500 mt-1" data-en="2030 Target" data-zh="2030目標">2030 Target</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="text-xs md:text-sm text-gray-400 mb-2" data-en="AIF Market Cap" data-zh="AIF市值">AIF Market Cap</div>
+                        <div class="text-2xl md:text-4xl font-bold gradient-text">$1.7-5.5B</div>
+                        <div class="text-xs text-gray-500 mt-1" data-en="Conservative" data-zh="保守">Conservative</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="text-xs md:text-sm text-gray-400 mb-2" data-en="Total Supply" data-zh="總供應">Total Supply</div>
+                        <div class="text-2xl md:text-4xl font-bold text-cyan-400">10B</div>
+                        <div class="text-xs text-gray-500 mt-1">AIF</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="text-xs md:text-sm text-gray-400 mb-2" data-en="5Y Burn Target" data-zh="5年銷毀目標">5Y Burn Target</div>
+                        <div class="text-2xl md:text-4xl font-bold text-red-400">1.05B</div>
+                        <div class="text-xs text-gray-500 mt-1">AIF (10.5%)</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4 class="text-lg md:text-2xl font-bold mb-4 text-yellow-400 text-center" data-en="Why Hong Kong?" data-zh="為什麼是香港?">Why Hong Kong?</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 text-xs md:text-sm">
+                        <div>
+                            <div class="font-bold mb-2 text-cyan-400" data-en="Eastern Advantages" data-zh="東方優勢">Eastern Advantages</div>
+                            <ul class="space-y-1">
+                                <li>• <span data-en="Asia-Pacific 35% share ($129B)" data-zh="亞太35%份額($1290億)">Asia-Pacific 35% share ($129B)</span></li>
+                                <li>• <span data-en="Access China, Japan, Korea" data-zh="接觸中日韓">Access China, Japan, Korea</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-2 text-blue-400" data-en="Western Bridge" data-zh="西方橋樑">Western Bridge</div>
+                            <ul class="space-y-1">
+                                <li>• <span data-en="International financial center" data-zh="國際金融中心">International financial center</span></li>
+                                <li>• <span data-en="Free capital flow" data-zh="資金自由流動">Free capital flow</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-bold mb-2 text-green-400" data-en="Regulatory Friendly" data-zh="監管友好">Regulatory Friendly</div>
+                            <ul class="space-y-1">
+                                <li>• <span data-en="Web3 sandbox" data-zh="Web3沙盒">Web3 sandbox</span></li>
+                                <li>• <span data-en="Crypto-friendly policies" data-zh="加密友好政策">Crypto-friendly policies</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-8">
+                <div>
+                    <div class="logo-font text-xl md:text-2xl mb-4">AIF GUIDE</div>
+                    <p class="text-gray-400 text-xs md:text-sm" data-en="Gold Reserve of AI Economy" data-zh="AI創意經濟的黃金儲備">
+                        Gold Reserve of AI Economy
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-sm md:text-base" data-en="Ecosystem" data-zh="生態">Ecosystem</h4>
+                    <ul class="space-y-2 text-gray-400 text-xs md:text-sm">
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400">HKAIIFF</a></li>
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400">AIF.Market</a></li>
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400">BeingOS</a></li>
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400">404.World</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-sm md:text-base" data-en="Resources" data-zh="資源">Resources</h4>
+                    <ul class="space-y-2 text-gray-400 text-xs md:text-sm">
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400" data-en="Whitepaper" data-zh="白皮書">Whitepaper</a></li>
+                        <li><a href="http://token.aif.market" target="_blank" class="hover:text-cyan-400" data-en="Documentation" data-zh="文檔">Documentation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold mb-4 text-sm md:text-base" data-en="Community" data-zh="社區">Community</h4>
+                    <ul class="space-y-2 text-gray-400 text-xs md:text-sm">
+                        <li><a href="#" class="hover:text-cyan-400">Discord</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Telegram</a></li>
+                        <li><a href="#" class="hover:text-cyan-400">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-6 md:pt-8 text-center text-gray-500 text-xs md:text-sm">
+                <p>&copy; 2025 AIF Ecosystem. <span data-en="All Rights Reserved." data-zh="版權所有。">All Rights Reserved.</span></p>
+                <p class="mt-2 text-xs" data-en="Disclaimer: Cryptocurrency investment carries risks." data-zh="免責聲明: 加密貨幣投資存在風險。">
+                    Disclaimer: Cryptocurrency investment carries risks.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta">
+        <a href="http://token.aif.market" target="_blank" class="btn-gold text-base md:text-lg px-6 md:px-8 py-3 md:py-4 shadow-2xl">
+            <span data-en="Get AIF" data-zh="獲取AIF">Get AIF</span> →
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        let currentLang = 'en';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-en][data-zh]');
+            elements.forEach(el => {
+                const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-zh');
+                if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                    el.placeholder = text;
+                } else {
+                    el.textContent = text;
+                }
+            });
+            
+            document.documentElement.lang = currentLang === 'en' ? 'en' : 'zh-Hant';
+            document.title = currentLang === 'en' 
+                ? 'AIF Guide | The Gold Reserve of AI Creative Economy'
+                : 'AIF指南 | AI創意經濟的黃金儲備';
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 0) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 255, 157, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+        
+        // Hide floating CTA near footer
+        const floatingCTA = document.querySelector('.floating-cta');
+        const footer = document.querySelector('.footer');
+        
+        window.addEventListener('scroll', () => {
+            const footerTop = footer.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (footerTop < windowHeight + 100) {
+                floatingCTA.style.opacity = '0';
+                floatingCTA.style.pointerEvents = 'none';
+            } else {
+                floatingCTA.style.opacity = '1';
+                floatingCTA.style.pointerEvents = 'auto';
+            }
+        });
+        
+        // Initialize
+        window.addEventListener('load', () => {
+            updateLanguage();
+        });
+    </script>
+</body>
+</html>
